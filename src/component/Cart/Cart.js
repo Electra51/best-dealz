@@ -147,4 +147,4 @@ const Cart = ({ cart, onIncrease, onDecrease, onRemove, onClearCart }) => {
   );
 };
 
-export default Cart;
+export default Cart;  
