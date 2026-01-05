@@ -3,6 +3,8 @@
     grid-template-columns: 4fr 1fr;
 }
 .products-container{
+    max-width: 1440px;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
