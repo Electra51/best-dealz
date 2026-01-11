@@ -1,34 +1,3 @@
-
-// import "./Cart.css";
-
-// const Cart = ({ cart }) => {
-//   let total = 0;
-//   let shipping = 0;
-
-//   for (const product of cart) {
-//     total = total + product.price;
-//     shipping = shipping + product.shipping;
-//   }
-//   const tax = parseFloat((total * (5 / 100)).toFixed(2));
-//   const grandTotal = total + shipping + tax;
-//   return (
-//     <div className="cart">
-//       <h3>Order Summary</h3>
-//       <p>Selected Items: {cart.length}</p>
-//       <p>Total Price: ${total}</p>
-//       <p>Total Shipping: ${shipping} </p>
-//       <p>Tax: {tax}</p>
-//       <h4>Grand Total: ${grandTotal.toFixed(2)}</h4>
-//     </div>
-//   );
-// };
-
-// export default Cart;
-
-
-
-
-import React from 'react';
 import './Cart.css';
 
 const Cart = ({ cart, onIncrease, onDecrease, onRemove, onClearCart }) => {
@@ -60,10 +29,39 @@ const Cart = ({ cart, onIncrease, onDecrease, onRemove, onClearCart }) => {
           <div className="empty-cart-icon">🛍️</div>
           <h4>Your cart is empty</h4>
           <p>Add some products to get started!</p>
+
+
+
+             {/* Summary */}
+          <div className="cart-summary">
+            <div className="summary-row">
+              <span>Selected Items:</span>
+              <span>{cart.length} products</span>
+            </div>
+            <div className="summary-row">
+              <span>Total Items:</span>
+              <span>{cart.reduce((sum, item) => sum + item.quantity, 0)}</span>
+            </div>
+            <div className="summary-row">
+              <span>Subtotal:</span>
+              <span>${total.toFixed(2)}</span>
+            </div>
+            <div className="summary-row">
+              <span>Shipping:</span>
+              <span>${shipping.toFixed(2)}</span>
+            </div>
+            <div className="summary-row">
+              <span>Tax (5%):</span>
+              <span>${tax.toFixed(2)}</span>
+            </div>
+            <div className="summary-row grand-total">
+              <span>Grand Total:</span>
+              <span>${grandTotal.toFixed(2)}</span>
+            </div>
+          </div>
         </div>
       ) : (
         <>
-          {/* Cart Items */}
           <div className="cart-items">
             {cart.map((product) => (
               <div key={product.id} className="cart-item">
