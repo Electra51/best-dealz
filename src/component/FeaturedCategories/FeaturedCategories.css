@@ -1,5 +1,5 @@
 .featured-categories {
-  padding: 100px 140px;
+  padding: 100px 0;
   max-width: 1400px;
   width: 100%;
   margin: 0 auto;
@@ -74,7 +74,9 @@
 
 .category-card {
   position: relative;
-  height: 400px;
+  height: 350px;
+  width: 350px;
+  margin: auto;
   border-radius: 24px;
   overflow: hidden;
   cursor: pointer;
