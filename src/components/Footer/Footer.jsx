@@ -1,123 +1,176 @@
 import React from "react";
-import logo from "../../assets/images/Logo.svg";
+import { Link } from "react-router-dom";
+import logo from "../../assets/images/Logo.png";
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa";
+import { FiMail, FiPhone, FiMapPin, FiClock } from "react-icons/fi";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
+  const footerLinks = {
+    quickLinks: [
+      { name: "About Us", path: "/about" },
+      { name: "Contact", path: "/contact" },
+      { name: "FAQs", path: "/faqs" },
+      { name: "Careers", path: "/careers" },
+      { name: "Blog", path: "/blog" },
+    ],
+    customerService: [
+      { name: "Return Policy", path: "/return-policy" },
+      { name: "Shipping Info", path: "/shipping" },
+      { name: "Track Order", path: "/track-order" },
+      { name: "Size Guide", path: "/size-guide" },
+      { name: "Terms & Conditions", path: "/terms" },
+    ],
+  };
+
+  const socialLinks = [
+    { icon: FaFacebookF, url: "#", label: "Facebook" },
+    { icon: FaTwitter, url: "#", label: "Twitter" },
+    { icon: FaInstagram, url: "#", label: "Instagram" },
+    { icon: FaLinkedinIn, url: "#", label: "LinkedIn" },
+    { icon: FaYoutube, url: "#", label: "YouTube" },
+  ];
+
   return (
-    <div>
-      {/* Footer Section */}
-      <footer className="bg-[#1a1a2e] text-[#e0e0e0] pt-[60px] px-[20px] pb-[30px]">
-        <div className="max-w-[1200px] mx-auto">
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] max-md:grid-cols-1 gap-[40px] max-md:gap-[35px] mb-[40px]">
-            {/* Company Info */}
-            <div className="animate-fade-in-up">
-              <div className="mb-[15px]">
-                <img src={logo} alt="Dealora Logo" className="h-[50px] max-md:h-[40px] max-sm:h-[35px] w-auto" />
-              </div>
-              <p className="text-[#b0b0b0] leading-[1.6] text-[14px] mb-[20px]">
-                Your trusted online shopping destination for quality products at
-                amazing prices. Shop with confidence and style.
-              </p>
-              <div className="mt-[20px]">
-                <span className="block text-[#e0e0e0] text-[13px] mb-[12px] font-medium">We Accept:</span>
-                <div className="flex gap-[10px] flex-wrap max-md:justify-start">
-                  <div className="py-[8px] px-[12px] bg-white/10 rounded-[6px] text-[11px] font-semibold text-white transition-all duration-300 hover:bg-[#ff6b35]/20 hover:-translate-y-[2px] cursor-pointer">VISA</div>
-                  <div className="py-[8px] px-[12px] bg-white/10 rounded-[6px] text-[11px] font-semibold text-white transition-all duration-300 hover:bg-[#ff6b35]/20 hover:-translate-y-[2px] cursor-pointer">MC</div>
-                  <div className="py-[8px] px-[12px] bg-white/10 rounded-[6px] text-[11px] font-semibold text-white transition-all duration-300 hover:bg-[#ff6b35]/20 hover:-translate-y-[2px] cursor-pointer">AMEX</div>
-                  <div className="py-[8px] px-[12px] bg-white/10 rounded-[6px] text-[11px] font-semibold text-white transition-all duration-300 hover:bg-[#ff6b35]/20 hover:-translate-y-[2px] cursor-pointer">PayPal</div>
-                </div>
-              </div>
-            </div>
+    <footer className="bg-[#1a1a24] text-[#f0f8ff] relative z-50">
+      {/* Newsletter Section */}
+      <div className="bg-linear-to-r from-orange-500 to-orange-600 py-12 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <span className="inline-block px-4 py-1 bg-white/20 rounded-full text-sm font-medium mb-4 backdrop-blur-sm">
+            NEWSLETTER
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">
+            Get 10% off your first order
+          </h2>
+          <p className="text-white/90 mb-8 max-w-2xl mx-auto">
+            Subscribe to our newsletter and receive exclusive offers, latest news, and updates directly in your inbox.
+          </p>
+          <form className="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto">
+            <input
+              type="email"
+              placeholder="Enter your email address"
+              className="flex-1 px-6 py-4 rounded-full text-gray-900 focus:outline-none focus:ring-4 focus:ring-white/30 transition-all"
+            />
+            <button
+              type="submit"
+              className="px-8 py-4 bg-[#1a1a24] text-white font-semibold rounded-full hover:bg-gray-900 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            >
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
 
-            {/* Quick Links */}
-            <div className="animate-fade-in-up">
-              <h4 className="text-white text-[18px] mb-[20px] font-semibold relative pb-[10px] after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-[40px] after:h-[2px] after:bg-[#ff6b35]">Quick Links</h4>
-              <ul className="list-none p-0 m-0">
-                <li className="mb-[12px]">
-                  <a href="#about" className="text-[#b0b0b0] no-underline text-[14px] transition-all duration-300 inline-block hover:text-[#ff6b35] hover:pl-[5px]">About Us</a>
-                </li>
-                <li className="mb-[12px]">
-                  <a href="#contact" className="text-[#b0b0b0] no-underline text-[14px] transition-all duration-300 inline-block hover:text-[#ff6b35] hover:pl-[5px]">Contact</a>
-                </li>
-                <li className="mb-[12px]">
-                  <a href="#faq" className="text-[#b0b0b0] no-underline text-[14px] transition-all duration-300 inline-block hover:text-[#ff6b35] hover:pl-[5px]">FAQs</a>
-                </li>
-                <li className="mb-[12px]">
-                  <a href="#careers" className="text-[#b0b0b0] no-underline text-[14px] transition-all duration-300 inline-block hover:text-[#ff6b35] hover:pl-[5px]">Careers</a>
-                </li>
-                <li className="mb-[12px]">
-                  <a href="#blog" className="text-[#b0b0b0] no-underline text-[14px] transition-all duration-300 inline-block hover:text-[#ff6b35] hover:pl-[5px]">Blog</a>
-                </li>
-              </ul>
-            </div>
-
-            {/* Customer Service */}
-            <div className="animate-fade-in-up">
-              <h4 className="text-white text-[18px] mb-[20px] font-semibold relative pb-[10px] after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-[40px] after:h-[2px] after:bg-[#ff6b35]">Customer Service</h4>
-              <ul className="list-none p-0 m-0">
-                <li className="mb-[12px]">
-                  <a href="#returns" className="text-[#b0b0b0] no-underline text-[14px] transition-all duration-300 inline-block hover:text-[#ff6b35] hover:pl-[5px]">Return Policy</a>
-                </li>
-                <li className="mb-[12px]">
-                  <a href="#shipping" className="text-[#b0b0b0] no-underline text-[14px] transition-all duration-300 inline-block hover:text-[#ff6b35] hover:pl-[5px]">Shipping Info</a>
-                </li>
-                <li className="mb-[12px]">
-                  <a href="#track" className="text-[#b0b0b0] no-underline text-[14px] transition-all duration-300 inline-block hover:text-[#ff6b35] hover:pl-[5px]">Track Order</a>
-                </li>
-                <li className="mb-[12px]">
-                  <a href="#size" className="text-[#b0b0b0] no-underline text-[14px] transition-all duration-300 inline-block hover:text-[#ff6b35] hover:pl-[5px]">Size Guide</a>
-                </li>
-                <li className="mb-[12px]">
-                  <a href="#terms" className="text-[#b0b0b0] no-underline text-[14px] transition-all duration-300 inline-block hover:text-[#ff6b35] hover:pl-[5px]">Terms & Conditions</a>
-                </li>
-              </ul>
-            </div>
-
-            {/* Contact Info */}
-            <div className="animate-fade-in-up">
-              <h4 className="text-white text-[18px] mb-[20px] font-semibold relative pb-[10px] after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-[40px] after:h-[2px] after:bg-[#ff6b35]">Get In Touch</h4>
-              <ul className="list-none p-0 m-0">
-                <li className="flex items-start gap-[12px] mb-[15px] text-[#b0b0b0] text-[14px] leading-[1.6]">
-                  <span className="text-[18px] shrink-0">📍</span>
-                  <span>123 Shopping Street, NY 10001</span>
-                </li>
-                <li className="flex items-start gap-[12px] mb-[15px] text-[#b0b0b0] text-[14px] leading-[1.6]">
-                  <span className="text-[18px] shrink-0">📞</span>
-                  <span>+1 (555) 123-4567</span>
-                </li>
-                <li className="flex items-start gap-[12px] mb-[15px] text-[#b0b0b0] text-[14px] leading-[1.6]">
-                  <span className="text-[18px] shrink-0">✉️</span>
-                  <span>support@dealora.com</span>
-                </li>
-                <li className="flex items-start gap-[12px] mb-[15px] text-[#b0b0b0] text-[14px] leading-[1.6]">
-                  <span className="text-[18px] shrink-0">🕒</span>
-                  <span>Mon - Fri: 9AM - 6PM</span>
-                </li>
-              </ul>
+      {/* Main Footer Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+          {/* Brand Column */}
+          <div className="lg:col-span-1">
+            <Link to="/" className="inline-block mb-6">
+              <img src={logo} alt="Dealora Logo" className="h-12 w-auto" />
+            </Link>
+            <p className="text-gray-400 mb-6 leading-relaxed">
+              Your trusted online shopping destination for quality products at amazing prices. Shop with confidence and style.
+            </p>
+            <div className="flex gap-3">
+              {socialLinks.map((social, index) => (
+                <a
+                  key={index}
+                  href={social.url}
+                  aria-label={social.label}
+                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-orange-500 transition-all duration-300 group"
+                >
+                  <social.icon className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                </a>
+              ))}
             </div>
           </div>
 
-          <div className="border-t border-white/10 pt-[25px] flex justify-between items-center flex-wrap gap-[20px] max-md:flex-col max-md:text-center">
-            <p className="text-[#888] text-[14px] m-0">
-              © 2024 Dealora. All rights reserved. Made with ❤️ by Developer
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6 text-white">Quick Links</h3>
+            <ul className="space-y-3">
+              {footerLinks.quickLinks.map((link, index) => (
+                <li key={index}>
+                  <Link
+                    to={link.path}
+                    className="text-gray-400 hover:text-orange-500 transition-colors duration-300 inline-block hover:translate-x-1 transform"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Customer Service */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6 text-white">Customer Service</h3>
+            <ul className="space-y-3">
+              {footerLinks.customerService.map((link, index) => (
+                <li key={index}>
+                  <Link
+                    to={link.path}
+                    className="text-gray-400 hover:text-orange-500 transition-colors duration-300 inline-block hover:translate-x-1 transform"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6 text-white">Get In Touch</h3>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <FiMapPin className="w-5 h-5 text-orange-500 mt-1 shrink-0" />
+                <span className="text-gray-400">123 Shopping Street, NY 10001</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <FiPhone className="w-5 h-5 text-orange-500 shrink-0" />
+                <span className="text-gray-400">+1 (555) 123-4567</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <FiMail className="w-5 h-5 text-orange-500 shrink-0" />
+                <span className="text-gray-400">support@dealora.com</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <FiClock className="w-5 h-5 text-orange-500 shrink-0" />
+                <span className="text-gray-400">Mon - Fri: 9AM - 6PM</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Bar */}
+      <div className="border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-gray-400 text-sm text-center md:text-left">
+              © {currentYear} Dealora. All rights reserved. Made with ❤️ by Developer
             </p>
-            <div className="flex gap-[20px]">
-              <a href="#" aria-label="Facebook" className="text-[#b0b0b0] no-underline text-[14px] transition-all duration-300 hover:text-[#ff6b35]">
+            <div className="flex gap-6 text-sm">
+              <a href="#" className="text-gray-400 hover:text-orange-500 transition-colors">
                 Facebook
               </a>
-              <a href="#" aria-label="Twitter" className="text-[#b0b0b0] no-underline text-[14px] transition-all duration-300 hover:text-[#ff6b35]">
+              <a href="#" className="text-gray-400 hover:text-orange-500 transition-colors">
                 Twitter
               </a>
-              <a href="#" aria-label="Instagram" className="text-[#b0b0b0] no-underline text-[14px] transition-all duration-300 hover:text-[#ff6b35]">
+              <a href="#" className="text-gray-400 hover:text-orange-500 transition-colors">
                 Instagram
               </a>
-              <a href="#" aria-label="LinkedIn" className="text-[#b0b0b0] no-underline text-[14px] transition-all duration-300 hover:text-[#ff6b35]">
+              <a href="#" className="text-gray-400 hover:text-orange-500 transition-colors">
                 LinkedIn
               </a>
             </div>
           </div>
         </div>
-      </footer>
-    </div>
+      </div>
+    </footer>
   );
 };
 
