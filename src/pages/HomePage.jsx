@@ -6,12 +6,14 @@ import SaleBanner from "../components/SaleBanner/SaleBanner";
 import WhyChooseUs from "../components/WhyChooseUs/WhyChooseUs";
 import CustomerReviews from "../components/CustomerReviews/CustomerReviews";
 import Newsletter from "../components/Newsletter/Newsletter";
+import ShopByBrand from "../components/ShopByBrand";
 
 const HomePage = () => {
   return (
     <div>
       <Hero />
       <FeaturedCategories />
+      <ShopByBrand/>
       <BestSellers />
       <SaleBanner />
       <WhyChooseUs />

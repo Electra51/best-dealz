@@ -56,14 +56,42 @@ const BestSellers = ({ handleAddToCart }) => {
 
   return (
     <section className="best-sellers">
-      <div className="best-sellers-header">
-        <span className="section-badge">Best Picks</span>
-        <h2 className="section-title">Trending Products</h2>
-        <p className="section-description">
-          Discover our most loved products chosen by thousands of satisfied
-          customers
-        </p>
-      </div>
+      <div className="flex justify-between items-center ">
+          <div className="text-start mb-16 relative z-10">
+            <h2 className="mt-4 text-4xl font-black text-gray-900 leading-tight">
+             <span className="bg-linear-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">
+                Trending
+              </span> Products
+             
+            </h2>
+            <p className="mt-2 max-w-xl mr-auto text-lg text-gray-600 leading-relaxed">
+              Discover our most loved products chosen by thousands of satisfied customers
+            </p>
+          </div>
+
+          {/* View All Button */}
+          <div className="text-center relative z-10">
+            <a
+              href="/brands"
+              className="inline-flex items-center gap-3 px-10 py-4 text-orange-600"
+            >
+              View All products
+              <svg
+                className="w-5 h-5 transition-transform duration-300 hover:translate-x-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
 
       <div className="best-sellers-grid">
         {bestSellers.map((product) => {

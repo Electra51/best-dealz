@@ -1,5 +1,4 @@
 import React from "react";
-import "./FeaturedCategories.css";
 
 const FeaturedCategories = () => {
   const categories = [
@@ -7,62 +6,50 @@ const FeaturedCategories = () => {
       id: 1,
       name: "Men's Sneakers",
       count: "150+ Products",
-      image:
-        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/fbaf991a78bc4896a3e9ad7800abcec6_9366/Ultraboost_22_Shoes_Black_GZ0127_01_standard.jpg",
+      image: "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/fbaf991a78bc4896a3e9ad7800abcec6_9366/Ultraboost_22_Shoes_Black_GZ0127_01_standard.jpg",
       category: "Men's Sneaker",
-      bgColor:
-        "linear-gradient(135deg, rgb(102 126 234 / 18%) 0%, rgb(118 75 162 / 70%) 100%)",
+      // Tailwind arbitrary gradient class (Hex with Alpha)
+      gradientClass: "bg-linear-gradient(135deg,#667EEA2E,#764BA2B2)", 
     },
     {
       id: 2,
       name: "Boots Collection",
       count: "80+ Products",
-      image:
-        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/b513f2cec8b440978d60ab6d014ad452_9366/Response_3MC_ADV_Boots_Black_EG9391_01_standard.jpg",
+      image: "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/b513f2cec8b440978d60ab6d014ad452_9366/Response_3MC_ADV_Boots_Black_EG9391_01_standard.jpg",
       category: "Men's Boot",
-      bgColor:
-        "linear-gradient(135deg, rgb(240 147 251 / 17%) 0%, rgb(164 43 59 / 44%) 100%)",
+      gradientClass: "bg-[linear-gradient(135deg,#F093FB2B,#A42B3B70)]",
     },
     {
       id: 3,
       name: "Caps & Hats",
       count: "120+ Products",
-      image:
-        "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/c3981523051c4a978674ad3c01015664_9366/Dispatch_Trucker_Hat_Black_EY5534_01_standard.jpg",
+      image: "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/c3981523051c4a978674ad3c01015664_9366/Dispatch_Trucker_Hat_Black_EY5534_01_standard.jpg",
       category: "Cap",
-      bgColor:
-        "linear-gradient(135deg, rgb(79 172 254 / 49%) 0%, rgb(0 242 254 / 0%) 100%)",
+      gradientClass: "bg-[linear-gradient(135deg,#4FACFE7D,#00F2FE00)]",
     },
     {
       id: 4,
       name: "Backpacks",
       count: "90+ Products",
-      image:
-        "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/d6ee0177281f42f0a254acb1016aa051_9366/Defender_Backpack_Red_EX7011_01_standard.jpg",
+      image: "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/d6ee0177281f42f0a254acb1016aa051_9366/Defender_Backpack_Red_EX7011_01_standard.jpg",
       category: "Backpack",
-      bgColor:
-        "linear-gradient(135deg, rgb(250 112 154 / 25%) 0%, rgb(254 225 64 / 30%) 100%)",
+      gradientClass: "bg-[linear-gradient(135deg,#FA709A40,#FEE1404C)]",
     },
-
     {
       id: 5,
       name: "Earphones",
       count: "200+ Products",
-      image:
-        "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/b322cdef8e654551ace9adcc00f963ed_9366/adidas_Z.N.E._01_ANC_True_Wireless_Earbuds_Grey_EY5114_41_detail.jpg",
+      image: "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/b322cdef8e654551ace9adcc00f963ed_9366/adidas_Z.N.E._01_ANC_True_Wireless_Earbuds_Grey_EY5114_41_detail.jpg",
       category: "Earphones",
-      bgColor:
-        "linear-gradient(135deg, rgb(168 237 234 / 22%) 0%, rgb(254 214 227 / 26%) 70%)",
+      gradientClass: "bg-[linear-gradient(135deg,#A8EDEA38,#FED6E342)]",
     },
     {
       id: 6,
       name: "Bottle",
       count: "100+ Products",
-      image:
-        "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/a9c04ca9fa51408faf2fac8e0117abb9_9366/Steel_Metal_Bottle_1L_Black_EX7288_01_standard.jpg",
+      image: "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/a9c04ca9fa51408faf2fac8e0117abb9_9366/Steel_Metal_Bottle_1L_Black_EX7288_01_standard.jpg",
       category: "Bottle",
-      bgColor:
-        "linear-gradient(135deg, rgb(255 236 210 / 26%) 0%, rgb(252 182 159 / 41%) 100%)",
+      gradientClass: "bg-[linear-gradient(135deg,#FFECD242,#FCB69F68)]",
     },
   ];
 
@@ -71,65 +58,40 @@ const FeaturedCategories = () => {
     if (shopSection) {
       shopSection.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-
     console.log("Selected category:", category);
   };
 
   return (
-    <section className="featured-categories">
-      <div className="categories-header">
-        <span className="section-badge">Explore</span>
-        <h2 className="section-title">Featured Categories</h2>
-        <p className="section-description">
-          Discover our curated collection of premium products across multiple
-          categories
+    <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8   overflow-hidden lg:py-32">
+      {/* Radial glow top */}
+      <div
+        className="absolute top-0 left-0 right-0 h-75 pointer-events-none bg-[radial-gradient(circle_at_50%_0%,rgba(255,165,0,0.05)_0%,transparent_70%)]"
+      ></div>
+
+      {/* Header */}
+      <div className="flex justify-between items-center ">
+        <div className="text-start mb-16 relative z-10"> 
+        <h2 className="mt-4 text-4xl font-black text-gray-900 leading-tight">
+          Featured Collections
+        </h2>
+        <p className="mt-2 max-w-xl mr-auto text-lg text-gray-600 leading-relaxed">
+          Discover our curated collection of premium products across multiple categories
         </p>
       </div>
 
-      <div className="categories-grid">
-        {categories.map((cat) => (
-          <div
-            key={cat.id}
-            className="category-card"
-            onClick={() => handleCategoryClick(cat.category)}>
-            <div
-              className="category-overlay"
-              style={{ background: cat.bgColor }}></div>
-            <div className="category-image">
-              <img src={cat.image} alt={cat.name} />
-            </div>
-            <div className="category-content">
-              <h3 className="category-name">{cat.name}</h3>
-              <p className="category-count">{cat.count}</p>
-              <button className="category-btn">
-                Shop Now
-                <svg
-                  className="arrow-icon"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"
-                  />
-                </svg>
-              </button>
-            </div>
-            <div className="category-shine"></div>
-          </div>
-        ))}
-      </div>
-
-      <div className="view-all-container">
-        <a href="/shop" className="view-all-btn">
+          {/* View All Button */}
+      <div className="text-center relative z-10">
+        <a
+          href="/shop"
+          className="inline-flex items-center gap-3 px-10 py-4 text-orange-600"
+        >
           View All Products
           <svg
-            className="btn-arrow"
+            className="w-5 h-5 transition-transform duration-300 hover:translate-x-1"
             fill="none"
             stroke="currentColor"
-            viewBox="0 0 24 24">
+            viewBox="0 0 24 24"
+          >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -139,6 +101,64 @@ const FeaturedCategories = () => {
           </svg>
         </a>
       </div>
+      </div>
+
+      {/* Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 relative z-10">
+        {categories.map((cat) => (
+          <div
+            key={cat.id}
+            className="group relative w-full h-87.5 mx-auto rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] shadow-lg hover:-translate-y-2.5 hover:shadow-xl"
+            onClick={() => handleCategoryClick(cat.category)}
+          >
+            
+
+            {/* Image */}
+            <div className="absolute inset-0">
+              <img
+                src={cat.image}
+                alt={cat.name}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+            </div>
+{/* Gradient Overlay */}
+<div
+  className={`absolute inset-0 z-1 ${cat.gradientClass} opacity-70 group-hover:opacity-90 transition-opacity duration-300`}
+/>
+            {/* Content */}
+            <div className="absolute bottom-0 left-0 right-0 p-8 z-10 transition-transform duration-300 group-hover:-translate-y-2.5">
+              <h3 className="text-3xl font-black text-white mb-2 drop-shadow-md">
+                {cat.name}
+              </h3>
+              <p className="text-white/90 mb-5 drop-shadow-md">{cat.count}</p>
+
+              <button className="flex items-center gap-2 px-6 py-3 bg-white text-gray-900 font-bold rounded-full text-sm opacity-0 transform translate-y-5 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 hover:bg-orange-500 hover:text-white hover:translate-x-1">
+                Shop Now
+                <svg
+                  className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            {/* Shine effect */}
+            <div
+              className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] opacity-0 group-hover:opacity-100 group-hover:left-full transition-all duration-500 rotate-45 pointer-events-none bg-[linear-gradient(45deg,transparent_30%,rgba(255,255,255,0.1)_50%,transparent_70%)]"
+            ></div>
+          </div>
+        ))}
+      </div>
+
+  
     </section>
   );
 };
