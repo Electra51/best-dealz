@@ -4,7 +4,7 @@ import MainLayout from "../Layouts/MainLayout";
 
 // Lazy loading the page components
 const HomePage = lazy(() => import("../pages/HomePage"));
-const Shop = lazy(() => import("../components/Features/Shop/Shop"));
+const ShopPage = lazy(() => import("../pages/ShopPage"));
 const About = lazy(() => import("../components/Features/About/About"));
 
 // A loading fallback component for Suspense
@@ -32,7 +32,7 @@ export const router = createBrowserRouter([
         path: "/shop",
         element: (
           <Suspense fallback={<LoadingFallback />}>
-            <Shop />
+            <ShopPage />
           </Suspense>
         ),
       },
