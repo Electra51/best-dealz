@@ -125,7 +125,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm text-center md:text-left">
-              © {currentYear} Dealora. All rights reserved. Made with ❤️ by Developer
+              © {currentYear} Dealora. All rights reserved. Made with ❤️ by safayet
             </p>
             <div className="flex gap-6 text-sm">
               <a href="#" className="text-gray-400 hover:text-orange-500 transition-colors">

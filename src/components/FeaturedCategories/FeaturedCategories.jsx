@@ -73,41 +73,6 @@ const FeaturedCategories = () => {
       {/* Radial glow top */}
       <div className="absolute top-0 left-0 right-0 h-75 pointer-events-none bg-[radial-gradient(circle_at_50%_0%,rgba(255,165,0,0.05)_0%,transparent_70%)]"></div>
 
-      {/* Header */}
-      {/* <div className="flex justify-between items-center">
-        <div className="text-start mb-16 relative z-10">
-          <h2 className="mt-4 text-4xl font-black text-gray-900 leading-tight">
-            Featured Collections
-          </h2>
-          <p className="mt-2 max-w-xl mr-auto text-lg text-gray-600 leading-relaxed">
-            Discover our curated collection of premium products across multiple
-            categories
-          </p>
-        </div>
-
-       
-        <div className="text-center relative z-10">
-          <a
-            href="/shop"
-            className="inline-flex items-center gap-3 px-10 py-4 text-orange-600"
-          >
-            View All Products
-            <svg
-              className="w-5 h-5 transition-transform duration-300 hover:translate-x-1"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </a>
-        </div>
-      </div> */}
 
       <SectionHeader
   title="Featured Collections"

@@ -2,7 +2,7 @@
 
 const FeaturedBanner = () => {
   return (
-    <section className="relative w-full lg:py-20  overflow-hidden  bg-linear-to-br  from-orange-400 via-orange-500 to-red-500 shadow-2xl">
+    <section className="relative w-full bg-linear-to-br  from-orange-400 via-orange-500 to-red-500 shadow-2xl">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
@@ -58,7 +58,7 @@ const FeaturedBanner = () => {
           </div>
 
           {/* Right Side - Image/Visual */}
-          <div className="hidden lg:flex items-center justify-center relative">
+          <div className="hidden lg:flex items-center justify-center relative z-50">
             <div className="relative w-full max-w-md">
               {/* Floating elements */}
               <div className="absolute -top-10 -left-10 w-32 h-32 bg-yellow-300/30 rounded-full blur-2xl animate-pulse"></div>

@@ -50,8 +50,12 @@ const SaleBanner = () => {
   ];
 
   return (
-    <div className="relative bg-linear-to-tr from-orange-100 to-orange-200 overflow-hidden border-y border-orange-100">
+    <div className="relative bg-linear-to-br from-[#1a1a24] via-[#2d1b3d] to-[#1a1a24] overflow-hidden border-y border-orange-100">
       {/* Close */}
+      <div 
+        className="absolute inset-0 pointer-events-none" 
+        style={{ background: "radial-gradient(circle at 20% 50%, rgba(255, 165, 0, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(138, 43, 226, 0.1) 0%, transparent 50%)" }}
+      ></div>
       <button
         onClick={closeBanner}
         aria-label="Close banner"
@@ -65,15 +69,10 @@ const SaleBanner = () => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 sm:py-14 lg:py-20 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center">
         {/* Left: copy */}
         <div className="flex flex-col items-start gap-5 text-left">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-100 text-orange-600 text-[11px] sm:text-xs font-bold uppercase tracking-wider">
-            <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
-            </svg>
-            Limited Time Offer
-          </span>
+         
 
           <h2 className="leading-tight">
-            <span className="block text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-gray-900">
+            <span className="block text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-white">
               Mega Winter Sale
             </span>
             <span className="block text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-orange-500 mt-1">
@@ -81,14 +80,14 @@ const SaleBanner = () => {
             </span>
           </h2>
 
-          <p className="text-gray-500 text-base sm:text-lg max-w-md">
+          <p className="text-gray-300 text-base sm:text-lg max-w-md">
             Premium shoes, bags, and accessories at unbeatable prices. Don't
             miss out on the season's biggest deals.
           </p>
 
           <Link
             to="/shop"
-            className="group inline-flex items-center gap-2 mt-1 px-7 py-3 bg-orange-500 text-white text-sm font-bold rounded-full shadow-md shadow-orange-200 transition-all duration-200 hover:bg-orange-600 hover:shadow-lg hover:shadow-orange-300"
+            className="group inline-flex items-center gap-2 mt-1 px-7 py-3 bg-orange-500 text-white text-sm font-bold rounded-full transition-all duration-200 hover:bg-orange-600 hover:shadow-lg hover:shadow-orange-300"
           >
             Shop Now
             <svg
@@ -101,7 +100,7 @@ const SaleBanner = () => {
             </svg>
           </Link>
 
-          <div className="flex flex-wrap gap-x-6 gap-y-2 mt-1 text-xs text-gray-500 font-medium">
+          <div className="flex flex-wrap gap-x-6 gap-y-2 mt-1 text-[13px] text-gray-300 font-medium">
             <span className="flex items-center gap-1.5">
               <svg className="w-4 h-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
@@ -119,7 +118,7 @@ const SaleBanner = () => {
 
         {/* Right: countdown */}
         <div className="flex flex-col items-start lg:items-end gap-4 w-full">
-          <p className="text-xs font-bold uppercase tracking-wider text-gray-400">
+          <p className="text-xs font-bold uppercase tracking-wider text-gray-300">
             Hurry! Sale Ends In
           </p>
           <div className="flex gap-2.5 sm:gap-3 w-full lg:w-auto">
