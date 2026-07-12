@@ -4,40 +4,77 @@ import { motion, AnimatePresence } from "framer-motion";
 import logo from "../assets/images/Logo.png";
 import heroShoe1 from "../assets/shoe.png";
 import heroShoe2 from "../assets/shoe.png";
+import clothing from "../assets/images/categories/clothing.png";
+import accessesories from "../assets/images/categories/accessesories.png";
+import footwaer from "../assets/images/categories/footwaer.png";
+import grooming from "../assets/images/categories/grooming.png";
 import { cn } from "../utils/cn";
-import { FiShoppingBag, FiMenu, FiX, FiSearch, FiChevronDown, FiArrowRight } from "react-icons/fi";
+import { 
+  FiShoppingBag, FiMenu, FiX, FiSearch, FiChevronDown, 
+  FiArrowRight, FiTrendingUp, FiStar, FiZap, FiGift 
+} from "react-icons/fi";
 
-// Static Data (Outside component for performance)
+// Enhanced Static Data with more details
 const MEGA_MENU_CATEGORIES = [
   {
-    title: "Men",
-    icon: "👔",
-    items: ["Sneakers", "Running Shoes", "Casual", "Formal", "Boots", "New Arrivals"],
+    title: "Clothing",
+    icon: "👕",
+    items: [
+      { name: "T-Shirts", count: 124, trending: true },
+      { name: "Shirts", count: 89 },
+      { name: "Hoodies", count: 67, trending: true },
+      { name: "Jackets", count: 45 },
+      { name: "Jeans", count: 156 },
+    ],
     color: "from-blue-500 to-cyan-500",
-    image: heroShoe1,
+    accentColor: "blue",
+    image: clothing,
+    badge: "Bestseller",
   },
   {
-    title: "Women",
-    icon: "👠",
-    items: ["Heels", "Flats", "Sneakers", "Sandals", "Boots", "Best Sellers"],
+    title: "Footwear",
+    icon: "👟",
+    items: [
+      { name: "Sneakers", count: 234, trending: true },
+      { name: "Running Shoes", count: 178 },
+      { name: "Boots", count: 89 },
+      { name: "Sandals", count: 56 },
+      { name: "Formal Shoes", count: 112 },
+    ],
     color: "from-pink-500 to-rose-500",
-    image: heroShoe2,
+    accentColor: "pink",
+    image: footwaer,
+    badge: "New Arrivals",
   },
- 
-  {
-    title: "Lifestyle",
-    icon: "✨",
-    items: ["Casual", "Streetwear", "Classic", "Modern", "Vintage", "Limited Edition"],
-    color: "from-purple-500 to-violet-500",
-    image: heroShoe2,
-  },
-
   {
     title: "Accessories",
-    icon: "🎒",
-    items: ["Socks", "Shoe Care", "Insoles", "Laces", "Bags", "Equipment"],
+    icon: "⌚",
+    items: [
+      { name: "Bags", count: 78 },
+      { name: "Watches", count: 145, trending: true },
+      { name: "Caps", count: 92 },
+      { name: "Wallets", count: 67 },
+      { name: "Belts", count: 54 },
+    ],
     color: "from-yellow-500 to-amber-500",
-    image: heroShoe2,
+    accentColor: "yellow",
+    image: accessesories,
+    badge: "Trending",
+  },
+  {
+    title: "Grooming",
+    icon: "🌿",
+    items: [
+      { name: "Perfumes", count: 189, trending: true },
+      { name: "Body Sprays", count: 134 },
+      { name: "Face Wash", count: 78 },
+      { name: "Hair Care", count: 92 },
+      { name: "Shaving Kits", count: 45 },
+    ],
+    color: "from-purple-500 to-violet-500",
+    accentColor: "purple",
+    image: grooming,
+    badge: "Premium",
   },
 ];
 
@@ -48,7 +85,7 @@ const NAV_LINKS = [
   { name: "About", path: "/about" },
 ];
 
-// Animation Variants
+// Animation Variants - Optimized for GPU
 const variants = {
   overlay: {
     hidden: { opacity: 0 },
@@ -59,8 +96,28 @@ const variants = {
     visible: { x: 0, transition: { type: "spring", damping: 25, stiffness: 200 } },
   },
   megaMenu: {
-    hidden: { opacity: 0, y: -10 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.2, ease: "easeOut" } },
+    hidden: { opacity: 0, y: -20, scale: 0.98 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      scale: 1,
+      transition: { 
+        duration: 0.4, 
+        ease: [0.22, 1, 0.36, 1],
+        staggerChildren: 0.05,
+        delayChildren: 0.1
+      } 
+    },
+    exit: { opacity: 0, y: -20, scale: 0.98, transition: { duration: 0.3 } }
+  },
+  categoryCard: {
+    hidden: { opacity: 0, y: 30, scale: 0.95 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      scale: 1,
+      transition: { type: "spring", stiffness: 260, damping: 20 }
+    },
   },
   searchInput: {
     hidden: { width: 0, opacity: 0 },
@@ -174,74 +231,172 @@ const SearchBar = memo(({ isOpen, onClose }) => {
   );
 });
 
-// Mega Menu Component with Images
+// Enhanced Category Card Component
+const CategoryCard = memo(({ category, index, onClose }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <motion.div
+      variants={variants.categoryCard}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="group relative"
+    >
+      <Link
+        to={`/shop?category=${category.title.toLowerCase()}`}
+        onClick={onClose}
+        className="block"
+      >
+        {/* Card Container */}
+        <div className="relative overflow-hidden  backdrop-blur-sm transition-all duration-500 hover:border-white/20">
+          {/* Gradient Overlay on Hover */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: isHovered ? 0.1 : 0 }}
+            transition={{ duration: 0.3 }}
+            className={`absolute inset-0 pointer-events-none`}
+          />
+
+        
+
+          {/* Header Section */}
+          <div className="relative z-10 mb-4">
+            <div className="flex items-center gap-3 mb-2">
+              <motion.div
+                animate={{ 
+                  scale: isHovered ? 1.2 : 1,
+                  rotate: isHovered ? [0, -10, 10, 0] : 0
+                }}
+                transition={{ duration: 0.4 }}
+                className="text-4xl"
+              >
+                {category.icon}
+              </motion.div>
+              <div>
+                <h3 className="text-xl font-bold text-white group-hover:text-orange-400 transition-colors duration-300">
+                  {category.title}
+                </h3>
+                <p className="text-sm text-gray-500 group-hover:text-gray-400 transition-colors">
+                  {category.description}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Items List */}
+          <ul className="relative z-10 space-y-2 mb-6">
+            {category.items.slice(0, 5).map((item, idx) => (
+              <motion.li
+                key={item.name}
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: idx * 0.05 }}
+                className="flex items-center justify-start group/item"
+              >
+                <Link
+                  to={`/shop?category=${category.title.toLowerCase()}&item=${item.name.toLowerCase().replace(/\s+/g, "-")}`}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onClose();
+                  }}
+                  className="flex items-center gap-2 text-sm text-gray-400 hover:text-orange-400 transition-all duration-300 flex-1"
+                >
+                  <motion.div
+                    animate={{ x: isHovered ? 4 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="flex items-center gap-2"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-linear-to-r from-orange-500 to-pink-500 opacity-60 group-hover/item:opacity-100 transition-opacity" />
+                    <span className="group-hover/item:translate-x-1 transition-transform duration-300">
+                      {item.name}
+                    </span>
+                       <span className="text-xs text-gray-600 group-hover/item:text-gray-500 transition-colors">
+                  ({item.count})
+                </span>
+                  </motion.div>
+                
+                </Link>
+             
+              </motion.li>
+            ))}
+          </ul>
+
+          {/* Image Preview */}
+          {category.image && (
+            <div className="relative h-40 rounded-xl overflow-hidden bg-linear-to-br from-white/5 to-white/10">
+              <motion.img
+                src={category.image}
+                alt={`${category.title} preview`}
+                className="w-full h-full object-contain p-4"
+                animate={{ 
+                  scale: isHovered ? 1.1 : 1,
+                  rotate: isHovered ? 2 : 0
+                }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                loading="lazy"
+              />
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: isHovered ? 0.3 : 0 }}
+                transition={{ duration: 0.3 }}
+                className={`absolute inset-0 bg-linear-to-br ${category.color} mix-blend-overlay`}
+              />
+              
+             
+            </div>
+          )}
+        </div>
+      </Link>
+    </motion.div>
+  );
+});
+
+
+
+// Enhanced Mega Menu Component
 const MegaMenu = memo(({ isOpen, onClose }) => {
   return (
     <AnimatePresence>
       {isOpen && (
         <>
+          {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/40 backdrop-blur-sm z-900"
+            className="fixed inset-0 bg-black/60 backdrop-blur-md z-900"
             onClick={onClose}
           />
+
+          {/* Mega Menu Panel */}
           <motion.div
             initial="hidden"
             animate="visible"
-            exit="hidden"
+            exit="exit"
             variants={variants.megaMenu}
-            className="absolute top-full left-0 right-0 bg-[#1a1a24]/98 backdrop-blur-xl border-t border-white/10 shadow-2xl z-950"
+            className="absolute top-full left-0 right-0 bg-[#1a1a24]/98 backdrop-blur-xl border-t border-white/10 shadow-2xl z-950 max-h-[calc(100vh-5rem)] overflow-y-auto"
+            style={{ willChange: 'transform, opacity' }}
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                {MEGA_MENU_CATEGORIES.map((category, index) => (
-                  <motion.div
-                    key={category.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.05 }}
-                    className="group"
-                  >
-                    <Link
-                      to={`/shop?category=${category.title.toLowerCase()}`}
-                      onClick={onClose}
-                      className="flex items-center gap-3 mb-4"
-                    >
-                      <span className="text-3xl">{category.icon}</span>
-                      <h3 className="text-lg font-bold text-white group-hover:text-orange-500 transition-colors">
-                        {category.title}
-                      </h3>
-                    </Link>
-                    <ul className="space-y-2 mb-4">
-                      {category.items.slice(0, 4).map((item) => (
-                        <li key={item}>
-                          <Link
-                            to={`/shop?category=${category.title.toLowerCase()}&item=${item.toLowerCase().replace(/\s+/g, "-")}`}
-                            onClick={onClose}
-                            className="text-sm text-gray-400 hover:text-orange-500 transition-colors block hover:translate-x-1"
-                          >
-                            {item}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                    {category.image && (
-                      <div className="relative h-32 rounded-xl overflow-hidden bg-linear-to-br from-white/5 to-white/10">
-                        <img
-                          src={category.image}
-                          alt={`${category.title} preview`}
-                          className="w-full h-full object-contain p-4 group-hover:scale-110 transition-transform duration-500"
-                        />
-                        <div className={`absolute inset-0 bg-linear-to-br ${category.color} opacity-0 group-hover:opacity-20 transition-opacity duration-300`} />
-                      </div>
-                    )}
-                  </motion.div>
-                ))}
+            
+
+              {/* Main Grid Layout */}
+              <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-8">
+              
+                  {MEGA_MENU_CATEGORIES.map((category, index) => (
+                    <CategoryCard
+                      key={category.title}
+                      category={category}
+                      index={index}
+                      onClose={onClose}
+                    />
+                  ))}
+               
+
+               
               </div>
 
-              {/* Featured Banner */}
+              {/* Promotional Banners */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -250,7 +405,7 @@ const MegaMenu = memo(({ isOpen, onClose }) => {
               >
                 <div className="bg-linear-to-r from-orange-500/10 to-purple-500/10 rounded-2xl p-6 flex items-center justify-between">
                   <div>
-                    <h4 className="text-xl font-bold text-white mb-2">New Arrivals 2025</h4>
+                    <h4 className="text-xl font-bold text-white mb-2">New Arrivals 2026</h4>
                     <p className="text-gray-400">Check out our latest collection with up to 40% off</p>
                   </div>
                   <Link
@@ -270,7 +425,7 @@ const MegaMenu = memo(({ isOpen, onClose }) => {
   );
 });
 
-// Main Header Component
+// Main Header Component (Same as before, just using the new MegaMenu)
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -279,7 +434,6 @@ const Header = () => {
 
   const location = useLocation();
 
-  // Scroll handler with RAF
   useEffect(() => {
     let ticking = false;
     const handleScroll = () => {
@@ -295,14 +449,12 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close menus on route change
   useEffect(() => {
     setIsMenuOpen(false);
     setIsMegaMenuOpen(false);
     setIsSearchOpen(false);
   }, [location]);
 
-  // Body scroll lock
   useEffect(() => {
     document.body.style.overflow = (isMenuOpen || isMegaMenuOpen || isSearchOpen) ? "hidden" : "unset";
     return () => {
@@ -312,12 +464,10 @@ const Header = () => {
 
   const isActive = useCallback((path) => location.pathname === path, [location.pathname]);
 
-  // ✅ Click toggle handler for Mega Menu
   const toggleMegaMenu = useCallback(() => {
     setIsMegaMenuOpen((prev) => !prev);
   }, []);
 
-  // ✅ Close Mega Menu
   const closeMegaMenu = useCallback(() => {
     setIsMegaMenuOpen(false);
   }, []);
@@ -337,7 +487,6 @@ const Header = () => {
       >
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            {/* Logo */}
             <Link to="/" className="shrink-0 z-1001">
               <motion.div
                 whileHover={{ scale: 1.05 }}
@@ -347,12 +496,10 @@ const Header = () => {
               </motion.div>
             </Link>
 
-            {/* Desktop Navigation - Centered */}
             <div className="hidden lg:flex items-center justify-center flex-1 gap-10">
               {NAV_LINKS.map((link) =>
                 link.hasMegaMenu ? (
                   <div key={link.path} className="relative">
-                    {/* ✅ onClick দিয়ে toggle করা হচ্ছে, hover সরানো হয়েছে */}
                     <motion.button
                       onClick={toggleMegaMenu}
                       className={cn(
@@ -397,7 +544,6 @@ const Header = () => {
               )}
             </div>
 
-            {/* Right Side Actions */}
             <div className="hidden lg:flex items-center gap-4">
               <motion.button
                 onClick={() => setIsSearchOpen(!isSearchOpen)}
@@ -425,7 +571,6 @@ const Header = () => {
               </motion.button>
             </div>
 
-            {/* Mobile Menu Button */}
             <motion.button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               whileTap={{ scale: 0.9 }}
@@ -449,10 +594,8 @@ const Header = () => {
           </div>
         </nav>
 
-        {/* Mega Menu */}
         <MegaMenu isOpen={isMegaMenuOpen} onClose={closeMegaMenu} />
 
-        {/* Mobile Menu */}
         <AnimatePresence>
           {isMenuOpen && (
             <>
@@ -506,10 +649,8 @@ const Header = () => {
         </AnimatePresence>
       </motion.header>
 
-      {/* Search Modal */}
       <SearchBar isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
 
-      {/* Spacer */}
       <div className="h-20" />
     </>
   );

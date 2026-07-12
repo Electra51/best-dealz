@@ -7,7 +7,7 @@ import { useWishlistStore } from '../../stores/wishlist.store';
 const ProductCard = memo(({ product, viewMode = 'grid' }) => {
   const addItem = useCartStore(s => s.addItem);
   const toggleWishlist = useWishlistStore(s => s.toggleItem);
-
+  console.log("product", product);
   return (
     <motion.div 
       layout
@@ -17,7 +17,7 @@ const ProductCard = memo(({ product, viewMode = 'grid' }) => {
       className={`group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow duration-300 ${viewMode === 'list' ? 'flex' : ''}`}
     >
       <div className={`relative bg-gray-50 ${viewMode === 'list' ? 'w-48 shrink-0' : 'aspect-square'} overflow-hidden`}>
-        <img src={product.image} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+        <img src={product.img} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
         
         <div className="absolute top-3 left-3 flex flex-col gap-2">
           {product.discount > 0 && <span className="bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded-full">-{product.discount}%</span>}
@@ -40,7 +40,7 @@ const ProductCard = memo(({ product, viewMode = 'grid' }) => {
         
         <div className="flex items-center gap-1 mb-3">
           <span className="text-yellow-400 text-sm">★</span>
-          <span className="text-xs text-gray-600 font-medium">{product.rating} ({product.reviews})</span>
+          <span className="text-xs text-gray-600 font-medium">{product.ratings} ({product.reviews})</span>
         </div>
         
         <div className="mt-auto flex items-center justify-between pt-2 border-t border-gray-50">

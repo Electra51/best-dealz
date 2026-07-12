@@ -50,7 +50,7 @@ const Shop = () => {
 
   return (
     <div className="grid grid-cols-[4fr_1fr] max-lg:grid-cols-1">
-      <div className="max-w-[1440px] mx-auto grid grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1 gap-[20px] p-[20px]">
+      <div className="max-w-360 mx-auto grid grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1 gap-5 p-5">
         {products.map((product) => (
           <Product
             key={product.id}

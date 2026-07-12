@@ -1,64 +1,70 @@
+
+
+
 import React from "react";
 import SectionHeader from "../../Common/SectionHeader";
+import weekend from "../../../assets/weekend.png";
+import office from "../../../assets/office.png";
+import black from "../../../assets/black.jpeg";
+import groomingpick from "../../../assets/groomingpick.jpeg";
+import active from "../../../assets/active.jpeg";
+
+
+
 
 const FeaturedCategories = () => {
-  const categories = [
-    {
-      id: 1,
-      name: "Men's Sneakers",
-      count: "150+ Products",
-      image:
-        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/fbaf991a78bc4896a3e9ad7800abcec6_9366/Ultraboost_22_Shoes_Black_GZ0127_01_standard.jpg",
-      category: "Men's Sneaker",
-      // Tailwind arbitrary gradient class (Hex with Alpha)
-      gradientClass: "bg-linear-gradient(135deg,#667EEA2E,#764BA2B2)",
-    },
-    {
-      id: 2,
-      name: "Boots Collection",
-      count: "80+ Products",
-      image:
-        "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/b513f2cec8b440978d60ab6d014ad452_9366/Response_3MC_ADV_Boots_Black_EG9391_01_standard.jpg",
-      category: "Men's Boot",
-      gradientClass: "bg-[linear-gradient(135deg,#F093FB2B,#A42B3B70)]",
-    },
-    {
-      id: 3,
-      name: "Caps & Hats",
-      count: "120+ Products",
-      image:
-        "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/c3981523051c4a978674ad3c01015664_9366/Dispatch_Trucker_Hat_Black_EY5534_01_standard.jpg",
-      category: "Cap",
-      gradientClass: "bg-[linear-gradient(135deg,#4FACFE7D,#00F2FE00)]",
-    },
-    {
-      id: 4,
-      name: "Backpacks",
-      count: "90+ Products",
-      image:
-        "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/d6ee0177281f42f0a254acb1016aa051_9366/Defender_Backpack_Red_EX7011_01_standard.jpg",
-      category: "Backpack",
-      gradientClass: "bg-[linear-gradient(135deg,#FA709A40,#FEE1404C)]",
-    },
-    {
-      id: 5,
-      name: "Earphones",
-      count: "200+ Products",
-      image:
-        "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/b322cdef8e654551ace9adcc00f963ed_9366/adidas_Z.N.E._01_ANC_True_Wireless_Earbuds_Grey_EY5114_41_detail.jpg",
-      category: "Earphones",
-      gradientClass: "bg-[linear-gradient(135deg,#A8EDEA38,#FED6E342)]",
-    },
-    {
-      id: 6,
-      name: "Bottle",
-      count: "100+ Products",
-      image:
-        "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/a9c04ca9fa51408faf2fac8e0117abb9_9366/Steel_Metal_Bottle_1L_Black_EX7288_01_standard.jpg",
-      category: "Bottle",
-      gradientClass: "bg-[linear-gradient(135deg,#FFECD242,#FCB69F68)]",
-    },
-  ];
+const categories = [
+  {
+    id: 1,
+    name: "Weekend Casual",
+    count: "150+ Products",
+    image:weekend,
+    category: "Weekend Casual",
+    gradientClass: "bg-[linear-gradient(160deg,#3A2A2A80,#1111111E)]",
+    span: "lg:col-span-2 lg:row-span-2",
+    accent: "sporty",
+  },
+  {
+    id: 2,
+    name: "Office Ready",
+    count: "80+ Products",
+    image: office,
+    category: "Office Ready",
+    gradientClass: "bg-[linear-gradient(160deg,#2E3440A0,#0A0A0AE6)]",
+    span: "",
+    accent: "classic",
+  },
+  {
+    id: 3,
+    name: "Black Edition",
+    count: "200+ Products",
+    image:black,
+    category: "Black Edition",
+    gradientClass: "bg-[linear-gradient(160deg,#C6F13530,#0A0A0AE6)]",
+    span: "",
+    accent: "sporty",
+  },
+  {
+    id: 4,
+    name: "Active Lifestyle",
+    count: "90+ Products",
+    image: active,
+    category: "Active Lifestyle",
+    gradientClass: "bg-[linear-gradient(160deg,#E8A85450,#0A0A0AE6)]",
+    span: "",
+    accent: "travel",
+  },
+  {
+    id: 5,
+    name: "Grooming Picks",
+    count: "60+ Products",
+    image: groomingpick,
+    category: "Luxury Fragrance",
+    gradientClass: "bg-[linear-gradient(160deg,#4A254580,#0A0A0AF2)]",
+    span: "",
+    accent: "luxury",
+  },
+];
 
   const handleCategoryClick = (category) => {
     const shopSection = document.querySelector(".products-container");
@@ -75,18 +81,18 @@ const FeaturedCategories = () => {
 
       <SectionHeader
         title="Featured Collections"
-        description="Discover our curated collection of premium products across multiple categories."
+        description="Shop by lifestyle — curated edits built around how you actually move through your week."
         showAction
         actionText="View All Products"
         actionLink="/shop"
       />
 
-      {/* Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-8 relative z-10">
+      {/* Bento Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:grid-rows-[220px_220px] gap-6 mb-8 relative z-10">
         {categories.map((cat) => (
           <div
             key={cat.id}
-            className="group relative w-full h-73 mx-auto rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] shadow-lg hover:-translate-y-2.5 hover:shadow-xl"
+            className={`group relative w-full h-73 lg:h-auto ${cat.span} rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] shadow-lg hover:-translate-y-2.5 hover:shadow-xl`}
             onClick={() => handleCategoryClick(cat.category)}
           >
             {/* Image */}
@@ -94,21 +100,37 @@ const FeaturedCategories = () => {
               <img
                 src={cat.image}
                 alt={cat.name}
-                className="w-full h-full object-fit transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
             </div>
+
             {/* Gradient Overlay */}
             <div
-              className={`absolute inset-0 z-1 ${cat.gradientClass} opacity-70 group-hover:opacity-90 transition-opacity duration-300`}
+              className={`absolute inset-0 z-1 ${cat.gradientClass} opacity-80 group-hover:opacity-90 transition-opacity duration-300`}
             />
+
             {/* Content */}
             <div className="absolute bottom-0 left-0 right-0 p-8 z-10 transition-transform duration-300 group-hover:-translate-y-2.5">
-              <h3 className="text-3xl font-black text-white mb-2 drop-shadow-md">
-                {cat.name}
-              </h3>
-              <p className="text-white/90 mb-5 drop-shadow-md">{cat.count}</p>
+              {cat.accent === "luxury" ? (
+                <h3 className="text-3xl text-white mb-2 drop-shadow-md tracking-wide">
+                  {cat.name}
+                </h3>
+              ) : (
+                <h3 className="text-3xl text-white mb-2 drop-shadow-md tracking-wide">
+                  {cat.name}
+                </h3>
+              )}
+              <p className="text-white/80 mb-5 drop-shadow-md text-sm">
+                {cat.count}
+              </p>
 
-              <button className="flex items-center gap-2 px-6 py-3 bg-white text-gray-900 font-bold rounded-full text-sm opacity-0 transform translate-y-5 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 hover:bg-orange-500 hover:text-white hover:translate-x-1">
+              <button
+                className={`flex items-center gap-2 px-6 py-3 font-bold rounded-full text-sm opacity-0 transform translate-y-5 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 hover:translate-x-1 ${
+                  cat.accent === "luxury"
+                    ? "bg-white text-[#4A2545] hover:bg-[#4A2545] hover:text-white"
+                    : "bg-white text-gray-900 hover:bg-lime-400 hover:text-black"
+                }`}
+              >
                 Shop Now
                 <svg
                   className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
@@ -126,8 +148,14 @@ const FeaturedCategories = () => {
               </button>
             </div>
 
-            {/* Shine effect */}
-            <div className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] opacity-0 group-hover:opacity-100 group-hover:left-full transition-all duration-500 rotate-45 pointer-events-none bg-[linear-gradient(45deg,transparent_30%,rgba(255,255,255,0.1)_50%,transparent_70%)]"></div>
+            {/* Shine effect (luxury card gets subtle shimmer on idle too) */}
+            <div
+              className={`absolute top-[-50%] left-[-50%] w-[200%] h-[200%] rotate-45 pointer-events-none bg-[linear-gradient(45deg,transparent_30%,rgba(255,255,255,0.12)_50%,transparent_70%)] transition-all duration-500 ${
+                cat.accent === "luxury"
+                  ? "opacity-40 group-hover:opacity-100 group-hover:left-full"
+                  : "opacity-0 group-hover:opacity-100 group-hover:left-full"
+              }`}
+            ></div>
           </div>
         ))}
       </div>
