@@ -77,20 +77,20 @@ const About = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-violet-900 via-purple-900 to-indigo-900 text-white py-24 overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-0 -left-20 w-96 h-96 bg-orange-500/20 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 -right-20 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"></div>
-        </div>
+      <section className="relative bg-linear-to-br from-[#1a1a24] via-[#2d1b3d] to-[#1a1a24] text-white py-24 overflow-hidden">
+         <div 
+        className="absolute inset-0 pointer-events-none" 
+        style={{ background: "radial-gradient(circle at 20% 50%, rgba(255, 165, 0, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(138, 43, 226, 0.1) 0%, transparent 50%)" }}
+      ></div>
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-start">
           <h1 className="text-5xl md:text-6xl font-black mb-6 leading-tight">
             About <span className="text-orange-500">SneakerHub</span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-gray-300 max-w-3xl mr-auto mb-8">
             We're more than just a sneaker store. We're a community of enthusiasts dedicated to bringing you the finest footwear from around the globe.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-start gap-4">
             <button className="px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-full transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-500/30">
               Our Story
             </button>
@@ -106,7 +106,7 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center p-6 rounded-2xl bg-gradient-to-br from-gray-50 to-white border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <div key={index} className="text-center p-6 rounded-2xl bg-linear-to-br from-purple-100 to-white border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
                 <div className="text-4xl md:text-5xl font-black text-orange-500 mb-2">{stat.number}</div>
                 <div className="text-gray-600 font-medium">{stat.label}</div>
               </div>
@@ -119,41 +119,76 @@ const About = () => {
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <span className="inline-block px-4 py-2 bg-orange-100 text-orange-600 rounded-full text-sm font-bold mb-4">
-                OUR STORY
-              </span>
-              <h2 className="text-4xl font-black text-gray-900 mb-6">
-                From Passion to <span className="text-orange-500">Purpose</span>
-              </h2>
-              <div className="space-y-4 text-gray-600 leading-relaxed">
-                <p>
-                  Founded in 2015, SneakerHub began with a simple mission: to make authentic, premium sneakers accessible to everyone. What started as a small boutique in downtown has grown into a global community of sneaker enthusiasts.
-                </p>
-                <p>
-                  We partner directly with top brands and authorized retailers to ensure every pair is 100% authentic. Our team of experts carefully curates each collection, bringing you the latest releases and timeless classics.
-                </p>
-                <p>
-                  Today, we serve over 50,000 happy customers worldwide, but we haven't forgotten our roots. Every order is handled with the same care and passion as our very first sale.
-                </p>
-              </div>
-              <div className="mt-8 flex gap-4">
-                <div className="flex items-center gap-2">
-                  <svg className="w-6 h-6 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <span className="font-semibold text-gray-900">100% Authentic</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <svg className="w-6 h-6 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <span className="font-semibold text-gray-900">Trusted Since 2015</span>
-                </div>
-              </div>
-            </div>
+          <div>
+  <span className="inline-block italic py-2 text-orange-600 rounded-full text-sm font-bold mb-4">
+    OUR STORY
+  </span>
+
+  <h2 className="text-4xl font-black text-gray-900 mb-6">
+    Built for Smarter <span className="text-orange-500">Shopping</span>
+  </h2>
+
+  <div className="space-y-4 text-gray-600 leading-relaxed">
+    <p>
+      Dealora was created with a simple vision—to make online shopping
+      effortless, reliable, and enjoyable. We bring together quality products,
+      trusted brands, and exclusive deals in one seamless shopping experience.
+    </p>
+
+    <p>
+      From everyday essentials to the latest collections, every product is
+      carefully selected to deliver exceptional value, premium quality, and a
+      customer-first experience. Our platform is designed with performance,
+      security, and convenience at its core.
+    </p>
+
+    <p>
+      As we continue to grow, our mission remains the same: helping customers
+      discover products they love through a modern, fast, and trustworthy
+      shopping platform that puts quality and satisfaction first.
+    </p>
+  </div>
+
+  <div className="mt-8 flex flex-wrap gap-6">
+    <div className="flex items-center gap-2">
+      <svg
+        className="w-6 h-6 text-orange-500"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+      >
+        <path
+          fillRule="evenodd"
+          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+          clipRule="evenodd"
+        />
+      </svg>
+
+      <span className="font-semibold text-gray-900">
+        Curated Quality Products
+      </span>
+    </div>
+
+    <div className="flex items-center gap-2">
+      <svg
+        className="w-6 h-6 text-orange-500"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+      >
+        <path
+          fillRule="evenodd"
+          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+          clipRule="evenodd"
+        />
+      </svg>
+
+      <span className="font-semibold text-gray-900">
+        Secure & Trusted Shopping
+      </span>
+    </div>
+  </div>
+</div>
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-500 to-purple-600 rounded-3xl transform rotate-3 opacity-20"></div>
+              <div className="absolute inset-0 bg-linear-to-br from-orange-500 to-purple-600 rounded-3xl transform rotate-3 opacity-20"></div>
               <img 
                 src="https://images.unsplash.com/photo-1556906781-9a412961c28c?w=800&h=600&fit=crop" 
                 alt="Our Store" 
@@ -181,8 +216,8 @@ const About = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
-              <div key={index} className="group p-8 rounded-2xl bg-gradient-to-br from-gray-50 to-white border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-                <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div key={index} className="group p-8 rounded-2xl bg-linear-to-br from-gray-50 to-white border border-gray-100 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                <div className="w-16 h-16 bg-linear-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300">
                   {value.icon}
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
@@ -194,7 +229,7 @@ const About = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-24 bg-gradient-to-br from-gray-50 to-purple-50">
+      <section className="py-24 bg-linear-to-br from-gray-50 to-purple-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-2 bg-orange-100 text-orange-600 rounded-full text-sm font-bold mb-4">
@@ -217,7 +252,7 @@ const About = () => {
                     alt={member.name} 
                     className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-purple-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                  <div className="absolute inset-0 bg-linear-to-t from-purple-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
                     <div className="flex gap-3">
                       <button className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-purple-600 hover:bg-orange-500 hover:text-white transition-colors duration-300">
                         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -244,9 +279,9 @@ const About = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-violet-900 via-purple-900 to-indigo-900 text-white relative overflow-hidden">
+      <section className="py-24 bg-linear-to-br from-violet-900 via-purple-900 to-indigo-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-orange-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 h-200 bg-orange-500/10 rounded-full blur-3xl"></div>
         </div>
         
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

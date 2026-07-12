@@ -3,12 +3,15 @@ import { motion } from 'framer-motion';
 
 const ShopHero = () => {
   return (
-    <section className="relative bg-linear-to-br from-violet-900 via-purple-900 to-indigo-900 text-white py-16 overflow-hidden">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <section className="relative bg-linear-to-br from-[#1a1a24] via-[#2d1b3d] to-[#1a1a24]  text-white py-16 overflow-hidden">
+      {/* <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 -left-20 w-96 h-96 bg-orange-500/20 rounded-full blur-3xl" />
         <div className="absolute bottom-0 -right-20 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" />
-      </div>
-      
+      </div> */}
+       <div 
+        className="absolute inset-0 pointer-events-none" 
+        style={{ background: "radial-gradient(circle at 20% 50%, rgba(255, 165, 0, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(138, 43, 226, 0.1) 0%, transparent 50%)" }}
+      ></div>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.nav 
           initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}
@@ -21,7 +24,8 @@ const ShopHero = () => {
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
           <h1 className="text-4xl md:text-5xl font-black mb-4 leading-tight">
-            Explore Our <span className="text-orange-500">Premium</span> Collection
+            Explore Our <span className="text-orange-500">Premium</span> 
+            <br/>Collection
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
             Discover the finest sneakers, apparel, and accessories curated for those who demand the best.
