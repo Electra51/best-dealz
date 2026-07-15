@@ -86,6 +86,15 @@ const NAV_LINKS = [
   { name: "About", path: "/about" },
 ];
 
+const SEARCH_SUGGESTIONS = [
+  { id: 1, name: "Nike Air Max Pro", category: "Footwear", price: 129.99, image: heroShoe1 },
+  { id: 2, name: "Adidas Ultraboost", category: "Footwear", price: 149.99, image: heroShoe2 },
+  { id: 3, name: "Classic Cotton T-Shirt", category: "Clothing", price: 24.99, image: clothing },
+  { id: 4, name: "Smart Watch Series 7", category: "Accessories", price: 299.00, image: accessesories },
+  { id: 5, name: "Premium Grooming Kit", category: "Grooming", price: 45.50, image: grooming },
+  { id: 6, name: "Running Shoes", category: "Footwear", price: 89.99, image: footwaer },
+];
+
 // Animation Variants - Optimized for GPU
 const variants = {
   overlay: {
@@ -140,15 +149,20 @@ const variants = {
 // Search Bar Component
 const SearchBar = memo(({ isOpen, onClose }) => {
   const [query, setQuery] = useState("");
+  const [debouncedQuery, setDebouncedQuery] = useState("");
+  const [isSearching, setIsSearching] = useState(false);
+  const [results, setResults] = useState([]);
   const inputRef = useRef(null);
   const navigate = useNavigate();
 
+  // Handle focus
   useEffect(() => {
     if (isOpen && inputRef.current) {
       inputRef.current.focus();
     }
   }, [isOpen]);
 
+  // Handle keyboard shortcuts
   useEffect(() => {
     const handleKeyDown = (e) => {
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
@@ -163,8 +177,38 @@ const SearchBar = memo(({ isOpen, onClose }) => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, onClose]);
 
+  // Debounce logic
+  useEffect(() => {
+    if (!query.trim()) {
+      setDebouncedQuery("");
+      setIsSearching(false);
+      setResults([]);
+      return;
+    }
+    
+    setIsSearching(true);
+    const timer = setTimeout(() => {
+      setDebouncedQuery(query);
+      setIsSearching(false);
+    }, 400); // 400ms debounce
+    
+    return () => clearTimeout(timer);
+  }, [query]);
+
+  // Search logic
+  useEffect(() => {
+    if (debouncedQuery.trim()) {
+      const lowerQuery = debouncedQuery.toLowerCase();
+      const filtered = SEARCH_SUGGESTIONS.filter(p => 
+        p.name.toLowerCase().includes(lowerQuery) || 
+        p.category.toLowerCase().includes(lowerQuery)
+      );
+      setResults(filtered);
+    }
+  }, [debouncedQuery]);
+
   const handleSubmit = (e) => {
-    e.preventDefault();
+    if (e) e.preventDefault();
     if (query.trim()) {
       navigate(`/shop?search=${encodeURIComponent(query.trim())}`);
       setQuery("");
@@ -180,7 +224,7 @@ const SearchBar = memo(({ isOpen, onClose }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-1100"
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[1100]"
             onClick={onClose}
           />
           <motion.div
@@ -188,10 +232,10 @@ const SearchBar = memo(({ isOpen, onClose }) => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -50, scale: 0.95 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed top-24 left-1/2 -translate-x-1/2 w-[90%] max-w-2xl bg-[#1a1a24] border border-white/10 rounded-2xl shadow-2xl z-1101"
+            className="fixed top-24 left-1/2 -translate-x-1/2 w-[90%] max-w-2xl bg-[#1a1a24] border border-white/10 rounded-2xl shadow-2xl z-[1101] overflow-hidden"
           >
             <form onSubmit={handleSubmit} className="p-6">
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 relative">
                 <FiSearch className="w-6 h-6 text-orange-500" />
                 <input
                   ref={inputRef}
@@ -201,28 +245,104 @@ const SearchBar = memo(({ isOpen, onClose }) => {
                   placeholder="Search for products, brands..."
                   className="flex-1 bg-transparent text-white text-lg placeholder:text-gray-500 focus:outline-none"
                 />
+                {query && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setQuery("");
+                      inputRef.current?.focus();
+                    }}
+                    className="p-1 text-gray-400 hover:text-white transition-colors mr-2"
+                  >
+                    <FiX className="w-5 h-5" />
+                  </button>
+                )}
                 <button
                   type="button"
                   onClick={onClose}
-                  className="p-2 text-gray-400 hover:text-white transition-colors"
+                  className="px-3 py-1.5 text-gray-400 hover:text-orange-500 bg-white/5 hover:bg-white/10 rounded-lg transition-colors text-sm font-medium"
                 >
-                  <FiX className="w-5 h-5" />
+                  Esc
                 </button>
               </div>
+              
               <div className="mt-6 pt-6 border-t border-white/10">
-                <p className="text-sm text-gray-500 mb-3">Popular Searches</p>
-                <div className="flex flex-wrap gap-2">
-                  {["Running Shoes", "Basketball", "New Arrivals", "Sale"].map((term) => (
-                    <button
-                      key={term}
-                      type="button"
-                      onClick={() => setQuery(term)}
-                      className="px-4 py-2 bg-white/5 hover:bg-orange-500/20 text-gray-300 hover:text-orange-500 rounded-full text-sm transition-all"
-                    >
-                      {term}
-                    </button>
-                  ))}
-                </div>
+                {!query.trim() ? (
+                  <>
+                    <p className="text-sm text-gray-500 mb-3">Popular Searches</p>
+                    <div className="flex flex-wrap gap-2">
+                      {["Running Shoes", "Basketball", "New Arrivals", "Sale"].map((term) => (
+                        <button
+                          key={term}
+                          type="button"
+                          onClick={() => {
+                            setQuery(term);
+                            navigate(`/shop?search=${encodeURIComponent(term)}`);
+                            onClose();
+                          }}
+                          className="px-4 py-2 bg-white/5 hover:bg-orange-500/20 text-gray-300 hover:text-orange-500 rounded-full text-sm transition-all"
+                        >
+                          {term}
+                        </button>
+                      ))}
+                    </div>
+                  </>
+                ) : (
+                  <div className="min-h-[150px]">
+                    <div className="flex items-center justify-between mb-4">
+                      <p className="text-sm text-gray-500">
+                        {isSearching ? "Searching..." : `Results for "${debouncedQuery}"`}
+                      </p>
+                      {isSearching && (
+                        <div className="w-4 h-4 border-2 border-orange-500 border-t-transparent rounded-full animate-spin" />
+                      )}
+                    </div>
+                    
+                    {!isSearching && results.length > 0 && (
+                      <div className="space-y-2 max-h-60 overflow-y-auto pr-2 custom-scrollbar">
+                        {results.map((product) => (
+                          <button
+                            key={product.id}
+                            type="button"
+                            onClick={() => {
+                              navigate(`/shop?search=${encodeURIComponent(product.name)}`);
+                              onClose();
+                            }}
+                            className="w-full flex items-center gap-4 p-3 hover:bg-white/5 rounded-xl transition-all duration-300 text-left group"
+                          >
+                            <div className="w-14 h-14 rounded-lg bg-white/10 flex items-center justify-center p-2 overflow-hidden shrink-0">
+                              <img src={product.image} alt={product.name} className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500" />
+                            </div>
+                            <div className="flex-1">
+                              <h4 className="text-white font-medium group-hover:text-orange-400 transition-colors">{product.name}</h4>
+                              <p className="text-xs text-gray-400 mt-1">{product.category}</p>
+                            </div>
+                            <div className="text-right">
+                              <span className="text-orange-400 font-semibold">${product.price}</span>
+                            </div>
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                    
+                    {!isSearching && results.length === 0 && debouncedQuery.trim() && (
+                      <div className="flex flex-col items-center justify-center py-8 text-center">
+                        <div className="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mb-4">
+                          <FiSearch className="w-6 h-6 text-gray-500" />
+                        </div>
+                        <p className="text-gray-300 font-medium mb-1">No exact matches found</p>
+                        <p className="text-sm text-gray-500 mb-4">Try searching for something else or check your spelling.</p>
+                        <button 
+                          type="button"
+                          onClick={handleSubmit}
+                          className="px-6 py-2 bg-orange-500/10 hover:bg-orange-500/20 text-orange-500 rounded-full text-sm font-medium transition-colors"
+                        >
+                          Search all products for "{debouncedQuery}"
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
             </form>
           </motion.div>
@@ -365,7 +485,7 @@ const MegaMenu = memo(({ isOpen, onClose }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/60 backdrop-blur-md z-900"
+            className="fixed top-20 inset-x-0 bottom-0 bg-black/60 backdrop-blur-md z-[900]"
             onClick={onClose}
           />
 
@@ -375,7 +495,7 @@ const MegaMenu = memo(({ isOpen, onClose }) => {
             animate="visible"
             exit="exit"
             variants={variants.megaMenu}
-            className="absolute top-full left-0 right-0 bg-[#1a1a24]/98 backdrop-blur-xl border-t border-white/10 shadow-2xl z-950 max-h-[calc(100vh-5rem)] overflow-y-auto"
+            className="absolute top-full left-0 right-0 bg-[#1a1a24]/98 backdrop-blur-xl border-t border-white/10 shadow-2xl z-[950] max-h-[calc(100vh-5rem)] overflow-y-auto"
             style={{ willChange: 'transform, opacity' }}
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -432,6 +552,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
+  const [mobileCategoriesOpen, setMobileCategoriesOpen] = useState(false);
 
   // Header component er vitore add korun
 const cartItems = useCartStore(s => s.items);
@@ -484,7 +605,7 @@ const totalCartItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         className={cn(
-          "fixed top-0 left-0 right-0 z-1000 transition-all duration-500",
+          "fixed top-0 left-0 right-0 z-[1000] transition-all duration-500",
           isScrolled
             ? "bg-[#1a1a24]/95 backdrop-blur-md shadow-lg shadow-black/20"
             : "bg-[#1a1a24]"
@@ -492,7 +613,7 @@ const totalCartItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
       >
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            <Link to="/" className="shrink-0 z-1001">
+            <Link to="/" className="shrink-0 relative z-[1001]">
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
@@ -584,7 +705,7 @@ const totalCartItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
             <motion.button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               whileTap={{ scale: 0.9 }}
-              className="lg:hidden relative w-10 h-10 flex items-center justify-center z-1001 text-[#f0f8ff]"
+              className="lg:hidden relative w-10 h-10 flex items-center justify-center z-[1001] text-[#f0f8ff]"
             >
               <div className="relative w-6 h-5">
                 <motion.span
@@ -613,7 +734,7 @@ const totalCartItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="lg:hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-999"
+                className="lg:hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-[999]"
                 onClick={() => setIsMenuOpen(false)}
               />
               <motion.div
@@ -621,25 +742,83 @@ const totalCartItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
                 animate="visible"
                 exit="hidden"
                 variants={variants.mobileMenu}
-                className="lg:hidden fixed top-0 right-0 h-full w-[80%] max-w-sm bg-[#1a1a24] z-1000 shadow-2xl"
+                className="lg:hidden fixed top-0 right-0 h-full w-[80%] max-w-sm bg-[#1a1a24] z-[1000] shadow-2xl"
               >
                 <div className="flex flex-col h-full pt-24 pb-8 px-6">
-                  <div className="flex-1 flex flex-col gap-2">
+                  <div className="flex-1 flex flex-col gap-2 overflow-y-auto pb-4">
                     {NAV_LINKS.map((link, index) => (
                       <motion.div
                         key={link.path}
                         variants={variants.navItem}
                       >
-                        <Link
-                          to={link.path}
-                          onClick={() => setIsMenuOpen(false)}
-                          className={cn(
-                            "text-[#f0f8ff] text-xl font-medium py-4 px-4 rounded-xl transition-all block",
-                            isActive(link.path) && "bg-orange-500/10 text-orange-500"
-                          )}
-                        >
-                          {link.name}
-                        </Link>
+                        {link.hasMegaMenu ? (
+                          <div className="flex flex-col">
+                            <button
+                              onClick={() => setMobileCategoriesOpen(!mobileCategoriesOpen)}
+                              className={cn(
+                                "flex items-center justify-between text-[#f0f8ff] text-xl font-medium py-4 px-4 rounded-xl transition-all",
+                                mobileCategoriesOpen && "bg-orange-500/10 text-orange-500"
+                              )}
+                            >
+                              {link.name}
+                              <FiChevronDown
+                                className={cn(
+                                  "w-5 h-5 transition-transform duration-300",
+                                  mobileCategoriesOpen && "rotate-180"
+                                )}
+                              />
+                            </button>
+                            <AnimatePresence>
+                              {mobileCategoriesOpen && (
+                                <motion.div
+                                  initial={{ height: 0, opacity: 0 }}
+                                  animate={{ height: "auto", opacity: 1 }}
+                                  exit={{ height: 0, opacity: 0 }}
+                                  className="overflow-hidden"
+                                >
+                                  <div className="pl-4 pr-2 py-4 space-y-6 bg-white/5 rounded-xl mt-2 mb-2">
+                                    {MEGA_MENU_CATEGORIES.map((category) => (
+                                      <div key={category.title} className="flex flex-col gap-3">
+                                        <Link
+                                          to={`/shop?category=${category.title.toLowerCase()}`}
+                                          onClick={() => setIsMenuOpen(false)}
+                                          className="flex items-center gap-3 text-white hover:text-orange-400 font-semibold text-lg"
+                                        >
+                                          <span className="text-2xl">{category.icon}</span>
+                                          {category.title}
+                                        </Link>
+                                        <div className="pl-9 space-y-3">
+                                          {category.items.map(item => (
+                                            <Link
+                                              key={item.name}
+                                              to={`/shop?category=${category.title.toLowerCase()}&item=${item.name.toLowerCase().replace(/\s+/g, "-")}`}
+                                              onClick={() => setIsMenuOpen(false)}
+                                              className="flex items-center gap-2 text-gray-400 hover:text-orange-400 text-sm font-medium"
+                                            >
+                                              <span className="w-1.5 h-1.5 rounded-full bg-orange-500/50" />
+                                              {item.name}
+                                            </Link>
+                                          ))}
+                                        </div>
+                                      </div>
+                                    ))}
+                                  </div>
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
+                          </div>
+                        ) : (
+                          <Link
+                            to={link.path}
+                            onClick={() => setIsMenuOpen(false)}
+                            className={cn(
+                              "text-[#f0f8ff] text-xl font-medium py-4 px-4 rounded-xl transition-all block",
+                              isActive(link.path) && "bg-orange-500/10 text-orange-500"
+                            )}
+                          >
+                            {link.name}
+                          </Link>
+                        )}
                       </motion.div>
                     ))}
                   </div>

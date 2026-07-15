@@ -29,11 +29,11 @@ const SectionHeader = ({
         (actionLink ? (
           <Link
             to={actionLink}
-            className="inline-flex items-center gap-2 text-orange-600 font-semibold transition-all duration-300 hover:gap-3"
+            className="hover:underline underline inline-flex items-center gap-2 bg-linear-to-tr from-[#FF7203] to-[#FF9A03] bg-clip-text text-transparent font-semibold transition-all duration-300 hover:gap-3"
           >
             {actionText}
 
-            <svg
+            {/* <svg
               className="w-5 h-5"
               fill="none"
               stroke="currentColor"
@@ -45,12 +45,12 @@ const SectionHeader = ({
                 strokeWidth="2"
                 d="M17 8l4 4m0 0l-4 4m4-4H3"
               />
-            </svg>
+            </svg> */}
           </Link>
         ) : (
           <button
             onClick={onActionClick}
-            className="inline-flex items-center gap-2 text-orange-600 font-semibold transition-all duration-300 hover:gap-3"
+            className="inline-flex items-center gap-2 bg-linear-to-tr from-[#FF7203] to-[#FF9A03] bg-clip-text text-transparent font-semibold transition-all duration-300 hover:gap-3"
           >
             {actionText}
 

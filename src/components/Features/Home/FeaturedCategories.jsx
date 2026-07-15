@@ -130,8 +130,8 @@ const categories = [
                 }}
                 className={`flex items-center gap-2 px-6 py-3 font-bold rounded-full text-sm opacity-0 transform translate-y-5 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 hover:translate-x-1 ${
                   cat.accent === "luxury"
-                    ? "bg-white text-[#4A2545] hover:bg-[#4A2545] hover:text-white"
-                    : "bg-white text-gray-900 hover:bg-lime-400 hover:text-black"
+                    ? "bg-linear-to-tr from-[#FF7203] to-[#FF9A03] text-gray-900 hover:bg-[#FF7203] hover:text-black"
+                    : "bg-linear-to-tr from-[#FF7203] to-[#FF9A03] text-gray-900 hover:bg-[#FF7203] hover:text-black"
                 }`}
               >
                 Shop Now

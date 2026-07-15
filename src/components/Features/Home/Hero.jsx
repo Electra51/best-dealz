@@ -42,17 +42,17 @@ const Hero = () => {
           </div>
           <div className="flex items-center justify-start gap-10">
             <div className="text-start">
-              <h3 className="m-0 text-[30px] font-extrabold text-orange-500 mb-1">500+</h3>
+              <h3 className="m-0 text-[30px] font-extrabold bg-linear-to-tr from-[#FF7203] to-[#FF9A03] bg-clip-text text-transparent mb-1">500+</h3>
               <p className="m-0 text-[14px] text-[rgba(240,248,255,0.7)] tracking-[1px]">Premium Products</p>
             </div>
             <div className="w-px h-12.5 bg-[rgba(240,248,255,0.2)] max-md:hidden"></div>
             <div className="text-start">
-              <h3 className="m-0 text-[30px] font-extrabold text-orange-500 mb-1">50K+</h3>
+              <h3 className="m-0 text-[30px] font-extrabold bg-linear-to-tr from-[#FF7203] to-[#FF9A03] bg-clip-text text-transparent mb-1">50K+</h3>
               <p className="m-0 text-[14px] text-[rgba(240,248,255,0.7)] tracking-[1px]">Happy Customers</p>
             </div>
             <div className="w-px h-12.5 bg-[rgba(240,248,255,0.2)] max-md:hidden"></div>
             <div className="text-start">
-              <h3 className="m-0 text-[30px] font-extrabold text-orange-500 mb-1">4.8★</h3>
+              <h3 className="m-0 text-[30px] font-extrabold bg-linear-to-tr from-[#FF7203] to-[#FF9A03] bg-clip-text text-transparent mb-1">4.8★</h3>
               <p className="m-0 text-[14px] text-[rgba(240,248,255,0.7)] tracking-[1px]">Average Rating</p>
             </div>
           </div>
