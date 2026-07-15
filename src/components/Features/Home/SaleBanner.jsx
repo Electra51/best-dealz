@@ -66,7 +66,7 @@ const SaleBanner = () => {
         </svg>
       </button>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 sm:py-14 lg:py-20 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center">
+      <div className="relative max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 py-12 sm:py-14 lg:py-20 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center">
         {/* Left: copy */}
         <div className="flex flex-col items-start gap-5 text-left">
          

@@ -3,7 +3,7 @@
 const FeaturedBanner = () => {
   return (
     <section className="relative w-full bg-linear-to-br  from-orange-400 via-orange-500 to-red-500 shadow-2xl">
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 py-8 md:py-0">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
@@ -15,15 +15,15 @@ const FeaturedBanner = () => {
           {/* Left Side - Text */}
           <div className="flex flex-col justify-center text-white">
             
-            <h2 className="text-5xl md:text-5xl lg:text-5xl font-black leading-tight mb-6">
+            <h2 className="text-3xl md:text-5xl lg:text-5xl font-black leading-tight mb-3 md:mb-6">
               Summer 
               Sale
             </h2>
-            <div className="flex items-center gap-4 mb-8">
-              <span className="text-6xl md:text-6xl font-black bg-white/20 backdrop-blur-sm px-6 py-3 rounded-2xl">
+            <div className="flex items-center gap-4 mb-3 md:mb-8">
+              <span className="text-3xl md:text-6xl font-black bg-white/20 backdrop-blur-sm px-3 py-2 md:px-6 md:py-3 rounded-2xl">
                 40%
               </span>
-              <span className="text-4xl md:text-5xl font-bold">OFF</span>
+              <span className="text-3xl md:text-5xl font-bold">OFF</span>
             </div>
             <p className="text-lg md:text-xl text-white/90 mb-8 max-w-md">
               Discover amazing deals on your favorite products. Don't miss out on this exclusive summer collection!

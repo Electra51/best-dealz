@@ -83,7 +83,7 @@ const About = () => {
         style={{ background: "radial-gradient(circle at 20% 50%, rgba(255, 165, 0, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(138, 43, 226, 0.1) 0%, transparent 50%)" }}
       ></div>
         
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-start">
+        <div className="relative max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 text-start">
           <h1 className="text-5xl md:text-6xl font-black mb-6 leading-tight">
             About <span className="text-orange-500">SneakerHub</span>
           </h1>

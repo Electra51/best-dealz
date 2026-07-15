@@ -225,7 +225,7 @@ const CustomerReviews = () => {
   }, [currentIndex, reviews]);
 
   return (
-    <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  lg:pt-12 w-full lg:pb-20 overflow-hidden">
+    <section className="relative max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 py-12 lg:pt-12 w-full lg:pb-20 overflow-hidden">
     
 
    
@@ -261,7 +261,7 @@ const CustomerReviews = () => {
         </button>
 
         {/* Reviews Slider */}
-        <div className="overflow-hidden px-4">
+        <div className="overflow-hidden">
           <div
             className="flex transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}

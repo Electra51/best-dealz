@@ -12,7 +12,7 @@ const ShopHero = () => {
         className="absolute inset-0 pointer-events-none" 
         style={{ background: "radial-gradient(circle at 20% 50%, rgba(255, 165, 0, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(138, 43, 226, 0.1) 0%, transparent 50%)" }}
       ></div>
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
         <motion.nav 
           initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}
           className="flex items-center gap-2 text-sm text-gray-300 mb-6"

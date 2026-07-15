@@ -30,7 +30,7 @@ const NewArrivals = ({ handleAddToCart }) => {
 
   if (loading) {
     return (
-      <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <section className="relative max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 py-12 md:py-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 lg:gap-8">
           {[...Array(4)].map((_, i) => (
             <div key={i} className="bg-white rounded-2xl h-96 animate-pulse shadow-md" />
@@ -42,14 +42,14 @@ const NewArrivals = ({ handleAddToCart }) => {
 
   if (error) {
     return (
-      <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <section className="relative max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 py-20">
         <div className="text-center text-red-500">Error: {error}</div>
       </section>
     );
   }
 
   return (
-    <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full lg:py-20">
+    <section className="relative max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 py-16 w-full lg:py-20">
       <SectionHeader
         title="New Arrivals"
         description="Check out the latest additions to our collection"

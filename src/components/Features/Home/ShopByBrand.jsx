@@ -45,14 +45,14 @@ const ShopByBrand = () => {
   const duplicatedBrands = [...brands, ...brands];
 
   return (
-    <section className="relative py-20 lg:py-20 overflow-hidden">
+    <section className="relative py-10 lg:py-20 overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 -left-20 w-96 h-96 bg-orange-100/30 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
         {/* Header */}
 
         <SectionHeader

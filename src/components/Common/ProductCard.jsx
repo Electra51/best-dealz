@@ -81,7 +81,7 @@ const ProductCard = memo(({
           card: 'bg-gradient-to-br from-white/5 to-white/10 border border-white/10 hover:border-white/20',
           badge: 'bg-gradient-to-r from-orange-500 to-amber-500',
           button: 'bg-gradient-to-br from-orange-500 to-amber-500 text-white',
-          textPrimary: 'text-white',
+          textPrimary: 'text-black hover:text-white',
           textSecondary: 'text-gray-400',
           accent: 'text-orange-400'
         };

@@ -22,7 +22,7 @@ const DealsHero = () => {
         style={{ background: "radial-gradient(circle at 20% 50%, rgba(255, 165, 0, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(138, 43, 226, 0.1) 0%, transparent 50%)" }}
       ></div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-start grid grid-cols-1 md:grid-cols-2 justify-between">
+      <div className="relative max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 text-start grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-0 justify-between">
      
 
        <div>
@@ -44,7 +44,7 @@ const DealsHero = () => {
        </div>
         
       <div>
-          <div className="flex justify-end gap-4 mb-10">
+          <div className="flex justify-start md:justify-end gap-4 mb-10">
           <TimeBox val={hours} label="Hours" />
           <TimeBox val={minutes} label="Mins" />
           <TimeBox val={seconds} label="Secs" />

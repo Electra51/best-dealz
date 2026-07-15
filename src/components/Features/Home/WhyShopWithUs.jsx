@@ -104,7 +104,7 @@ const WhyShopWithUs = () => {
   ];
 
   return (
-    <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  lg:pt-12 lg:pb-20 w-full">
+    <section className="relative max-w-7xl mx-auto px-6 sm:px-6 lg:px-8  lg:pt-12 lg:pb-20 w-full">
    
      <SectionHeader
   title=" Why Shop With Us"
