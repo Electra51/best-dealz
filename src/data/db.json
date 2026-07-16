@@ -99,7 +99,7 @@
         "premium",
         "new"
       ],
-      "thumbnail": "src/assets/active.jpeg",
+      "thumbnail": "src/assets/images/jeans/jeans3.png",
       "gallery": [
         "src/assets/active.jpeg",
         "src/assets/active.jpeg",
@@ -246,6 +246,172 @@
     "73bqub42x"
   ]
 },
+{
+  "id": "jkt4n9xp2",
+  "sku": "CLO-41382",
+  "slug": "puma-lightweight-training-jacket",
+  "name": "Puma Lightweight Training Jacket",
+  "shortDescription": "A lightweight performance jacket built for outdoor training, travel, and everyday active wear.",
+  "fullDescription": "The Puma Lightweight Training Jacket combines breathable comfort with weather-resistant protection. Designed for active lifestyles, it features a lightweight shell, zippered pockets, and a modern athletic fit that keeps you comfortable during workouts, running sessions, or casual outdoor activities. Its minimalist design makes it easy to pair with joggers or jeans for a sporty everyday look.",
+  "brand": "Puma",
+  "category": "Clothing",
+  "subCategory": "Jackets",
+  "collection": "Active Lifestyle",
+  "gender": "Men",
+  "tags": [
+    "puma",
+    "training",
+    "running",
+    "sportswear",
+    "lightweight"
+  ],
+  "thumbnail": "src/assets/images/jackets/jacket4.png",
+  "gallery": [
+    "src/assets/images/jackets/jacket4.png",
+    "src/assets/images/jackets/jacket4-side.png",
+    "src/assets/images/jackets/jacket4-back.png",
+    "src/assets/images/jackets/jacket4-detail.png"
+  ],
+  "price": 110,
+  "comparePrice": 145,
+  "inventory": {
+    "stock": 92,
+    "lowStock": false,
+    "inStock": true,
+    "preorder": false,
+    "shippingDays": 3
+  },
+  "rating": 4.8,
+  "reviewCount": 286,
+  "soldCount": 2149,
+  "colors": [
+    "Black",
+    "Grey",
+    "Navy"
+  ],
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "shipping": {
+    "freeShipping": true,
+    "cost": 0
+  },
+  "estimatedDelivery": "2 - 4 Business Days",
+  "flags": {
+    "featured": true,
+    "trending": true,
+    "newArrival": false,
+    "bestSeller": true,
+    "isLimitedEdition": false,
+    "isFeaturedCollection": true
+  },
+  "createdAt": "2026-02-18T08:15:00.000Z",
+  "updatedAt": "2026-07-10T10:45:00.000Z",
+  "relatedProducts": [
+    "mgumlt0ef",
+    "kfmbqbzuc",
+    "lllqb3e6v",
+    "bgb6bl77s"
+  ],
+  "recommendedProducts": [
+    "yrtsek60s",
+    "73bqub42x",
+    "bs134xkg4",
+    "371jvciy1"
+  ],
+  "frequentlyBoughtTogether": [
+    "gkt3ndo5l",
+    "p2784ody8",
+    "es4yoohd9"
+  ]
+},
+{
+  "id": "jkt5w8c6m",
+  "sku": "CLO-41765",
+  "slug": "puma-performance-track-jacket",
+  "name": "Puma Performance Track Jacket",
+  "shortDescription": "Premium performance track jacket engineered for workouts, travel, and everyday comfort.",
+  "fullDescription": "Stay prepared in changing weather with the Puma Performance Track Jacket. Crafted with durable, lightweight fabric and moisture-management technology, it delivers exceptional comfort during training sessions or daily commutes. Featuring secure zip pockets, stretch cuffs, and a streamlined athletic silhouette, it's an essential layer for every active wardrobe.",
+  "brand": "Puma",
+  "category": "Clothing",
+  "subCategory": "Jackets",
+  "collection": "Active Lifestyle",
+  "gender": "Men",
+  "tags": [
+    "track jacket",
+    "gym",
+    "running",
+    "puma",
+    "active"
+  ],
+  "thumbnail": "src/assets/images/jackets/jacket5.png",
+  "gallery": [
+    "src/assets/images/jackets/jacket5.png",
+    "src/assets/images/jackets/jacket5-side.png",
+    "src/assets/images/jackets/jacket5-back.png",
+    "src/assets/images/jackets/jacket5-detail.png"
+  ],
+  "price": 120,
+  "comparePrice": 155,
+  "inventory": {
+    "stock": 67,
+    "lowStock": false,
+    "inStock": true,
+    "preorder": false,
+    "shippingDays": 2
+  },
+  "rating": 4.9,
+  "reviewCount": 418,
+  "soldCount": 2986,
+  "colors": [
+    "Black",
+    "White",
+    "Olive"
+  ],
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ],
+  "shipping": {
+    "freeShipping": true,
+    "cost": 0
+  },
+  "estimatedDelivery": "1 - 3 Business Days",
+  "flags": {
+    "featured": true,
+    "trending": true,
+    "newArrival": true,
+    "bestSeller": true,
+    "isLimitedEdition": true,
+    "isFeaturedCollection": true
+  },
+  "createdAt": "2026-05-12T11:20:00.000Z",
+  "updatedAt": "2026-07-15T09:10:00.000Z",
+  "relatedProducts": [
+    "mgumlt0ef",
+    "jkt4n9xp2",
+    "lllqb3e6v",
+    "bgb6bl77s"
+  ],
+  "recommendedProducts": [
+    "yrtsek60s",
+    "bs134xkg4",
+    "371jvciy1",
+    "73bqub42x"
+  ],
+  "frequentlyBoughtTogether": [
+    "gkt3ndo5l",
+    "p2784ody8",
+    "es4yoohd9"
+  ]
+},
     {
       "id": "9nrv3s1w6",
       "sku": "FOO-25066",
@@ -347,7 +513,7 @@
         "premium",
         "new"
       ],
-      "thumbnail": "src/assets/active.jpeg",
+      "thumbnail": "src/assets/images/jackets/jacket1.png",
       "gallery": [
         "src/assets/active.jpeg",
         "src/assets/active.jpeg",
@@ -586,7 +752,7 @@
         "premium",
         "new"
       ],
-      "thumbnail": "src/assets/active.jpeg",
+      "thumbnail": "src/assets/images/jeans/jeans1.png",
       "gallery": [
         "src/assets/active.jpeg",
         "src/assets/active.jpeg",
@@ -988,7 +1154,7 @@
         "premium",
         "new"
       ],
-      "thumbnail": "src/assets/active.jpeg",
+      "thumbnail": "src/assets/images/jackets/jacket2.png",
       "gallery": [
         "src/assets/active.jpeg",
         "src/assets/active.jpeg",
@@ -1068,7 +1234,7 @@
         "premium",
         "new"
       ],
-      "thumbnail": "src/assets/active.jpeg",
+      "thumbnail": "src/assets/images/jeans/jeans2.png",
       "gallery": [
         "src/assets/active.jpeg",
         "src/assets/active.jpeg",
@@ -1805,7 +1971,7 @@
         "premium",
         "new"
       ],
-      "thumbnail": "src/assets/active.jpeg",
+      "thumbnail": "src/assets/images/jackets/jacket3.png",
       "gallery": [
         "src/assets/active.jpeg",
         "src/assets/active.jpeg",
