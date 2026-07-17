@@ -1,30 +1,52 @@
-import React from "react";
+import React, { lazy } from "react";
 import Hero from "../components/Features/Home/Hero";
-import FeaturedCategories from "../components/Features/Home/FeaturedCategories";
-import Trending from "../components/Features/Home/Trending";
-import FeaturedBanner from "../components/Features/Home/FeaturedBanner";
-import NewArrivals from "../components/Features/Home/NewArrivals";
-import ShopByBrand from "../components/Features/Home/ShopByBrand";
-import SaleBanner from "../components/Features/Home/SaleBanner";
-import BestSellers from "../components/Features/Home/BestSellers";
-import WhyShopWithUs from "../components/Features/Home/WhyShopWithUs";
-import CustomerReviews from "../components/Features/Home/CustomerReviews";
-import Newsletter from "../components/Features/Home/Newsletter";
+import LazySection from "../components/Common/LazySection";
+
+const FeaturedCategories = lazy(() => import("../components/Features/Home/FeaturedCategories"));
+const Trending = lazy(() => import("../components/Features/Home/Trending"));
+const FeaturedBanner = lazy(() => import("../components/Features/Home/FeaturedBanner"));
+const NewArrivals = lazy(() => import("../components/Features/Home/NewArrivals"));
+const ShopByBrand = lazy(() => import("../components/Features/Home/ShopByBrand"));
+const SaleBanner = lazy(() => import("../components/Features/Home/SaleBanner"));
+const BestSellers = lazy(() => import("../components/Features/Home/BestSellers"));
+const WhyShopWithUs = lazy(() => import("../components/Features/Home/WhyShopWithUs"));
+const CustomerReviews = lazy(() => import("../components/Features/Home/CustomerReviews"));
+const Newsletter = lazy(() => import("../components/Features/Home/Newsletter"));
 
 const HomePage = () => {
   return (
     <div>
       <Hero />
-      <FeaturedCategories />
-      <Trending />
-      <FeaturedBanner />
-      <NewArrivals />
-      <ShopByBrand />
-      <SaleBanner />
-      <BestSellers />
-      <WhyShopWithUs />
-      <CustomerReviews />
-      <Newsletter />
+      <LazySection>
+        <FeaturedCategories />
+      </LazySection>
+      <LazySection>
+        <Trending />
+      </LazySection>
+      <LazySection>
+        <FeaturedBanner />
+      </LazySection>
+      <LazySection>
+        <NewArrivals />
+      </LazySection>
+      <LazySection>
+        <ShopByBrand />
+      </LazySection>
+      <LazySection>
+        <SaleBanner />
+      </LazySection>
+      <LazySection>
+        <BestSellers />
+      </LazySection>
+      <LazySection>
+        <WhyShopWithUs />
+      </LazySection>
+      <LazySection>
+        <CustomerReviews />
+      </LazySection>
+      <LazySection>
+        <Newsletter />
+      </LazySection>
     </div>
   );
 };
