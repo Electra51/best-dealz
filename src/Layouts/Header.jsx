@@ -9,20 +9,9 @@ import accessesories from "../assets/images/categories/accessesories.png";
 import footwaer from "../assets/images/categories/footwaer.png";
 import grooming from "../assets/images/categories/grooming.png";
 import { cn } from "../utils/cn";
-import {
-  FiShoppingBag,
-  FiMenu,
-  FiX,
-  FiSearch,
-  FiChevronDown,
-  FiArrowRight,
-  FiTrendingUp,
-  FiStar,
-  FiZap,
-  FiGift,
-} from "react-icons/fi";
 import { useCartStore } from "../stores/cart.store";
 import dbData from "../data/db.json";
+import { ArrowRight, ChevronDown, X, Search, ShoppingBag } from "lucide-react";
 
 const getCategoryCount = (subCategory) => {
   return dbData.products.filter((p) => p.subCategory === subCategory).length;
@@ -289,7 +278,7 @@ const SearchBar = memo(({ isOpen, onClose }) => {
           >
             <form onSubmit={handleSubmit} className="p-6">
               <div className="flex items-center gap-4 relative">
-                <FiSearch className="w-6 h-6 text-orange-500" />
+                <Search className="w-6 h-6 text-orange-500" />
                 <input
                   ref={inputRef}
                   type="text"
@@ -307,7 +296,7 @@ const SearchBar = memo(({ isOpen, onClose }) => {
                     }}
                     className="p-1 text-gray-400 hover:text-white transition-colors mr-2"
                   >
-                    <FiX className="w-5 h-5" />
+                    <X className="w-5 h-5" />
                   </button>
                 )}
                 <button
@@ -406,7 +395,7 @@ const SearchBar = memo(({ isOpen, onClose }) => {
                       debouncedQuery.trim() && (
                         <div className="flex flex-col items-center justify-center py-8 text-center">
                           <div className="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mb-4">
-                            <FiSearch className="w-6 h-6 text-gray-500" />
+                            <Search className="w-6 h-6 text-gray-500" />
                           </div>
                           <p className="text-gray-300 font-medium mb-1">
                             No exact matches found
@@ -607,7 +596,7 @@ const MegaMenu = memo(({ isOpen, onClose }) => {
                     onClick={onClose}
                     className="px-6 py-3 bg-orange-500 text-white font-semibold rounded-full hover:bg-orange-600 transition-colors flex items-center gap-2"
                   >
-                    Shop Now <FiArrowRight className="w-4 h-4" />
+                    Shop Now <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
               </motion.div>
@@ -717,7 +706,7 @@ const Header = () => {
                       whileHover={{ y: -2 }}
                     >
                       {link.name}
-                      <FiChevronDown
+                      <ChevronDown
                         className={cn(
                           "w-4 h-4 transition-transform duration-300",
                           isMegaMenuOpen && "rotate-180",
@@ -763,7 +752,7 @@ const Header = () => {
                 whileTap={{ scale: 0.95 }}
                 className="p-2 text-[#f0f8ff] hover:text-orange-500 transition-colors"
               >
-                <FiSearch className="w-5 h-5" />
+                <Search className="w-5 h-5" />
               </motion.button>
 
               <Link to={"/cart"}>
@@ -773,7 +762,7 @@ const Header = () => {
                   onClick={() => navigate("/cart")} // Cart page-e navigate
                   className="relative p-2 text-[#f0f8ff] hover:text-orange-500 transition-colors"
                 >
-                  <FiShoppingBag className="w-6 h-6" />
+                  <ShoppingBag className="w-6 h-6" />
                   {totalCartItems > 0 && (
                     <motion.span
                       key={totalCartItems} // Animation trigger
@@ -856,7 +845,7 @@ const Header = () => {
                               )}
                             >
                               {link.name}
-                              <FiChevronDown
+                              <ChevronDown
                                 className={cn(
                                   "w-5 h-5 transition-transform duration-300",
                                   mobileCategoriesOpen && "rotate-180",
@@ -932,7 +921,7 @@ const Header = () => {
                       className="w-full flex items-center justify-between p-4 bg-orange-500 rounded-xl text-white font-semibold"
                     >
                       <span className="flex items-center gap-2">
-                        <FiShoppingBag className="w-5 h-5" />
+                        <ShoppingBag className="w-5 h-5" />
                         View Cart
                       </span>
                       <span className="bg-white/20 px-3 py-1 rounded-full text-sm">

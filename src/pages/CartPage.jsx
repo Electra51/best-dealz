@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiTrash2, FiPlus, FiMinus, FiShoppingBag, FiArrowRight } from 'react-icons/fi';
 import { useCartStore } from '../stores/cart.store';
 import { formatPrice } from '../utils/helpers';
+import { ArrowRight, Minus, Plus, ShoppingBag, Trash } from 'lucide-react';
 
 const CartPage = () => {
   const navigate = useNavigate();
@@ -28,7 +28,7 @@ const CartPage = () => {
               to="/shop"
               className="inline-flex items-center gap-2 px-6 py-3 bg-orange-500 text-white rounded-full font-semibold hover:bg-orange-600 transition-colors"
             >
-              <FiShoppingBag className="w-5 h-5" />
+              <ShoppingBag className="w-5 h-5" />
               Start Shopping
             </Link>
           </div>
@@ -96,7 +96,7 @@ const CartPage = () => {
                         onClick={() => removeItem(item.id)}
                         className="p-2 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors"
                       >
-                        <FiTrash2 className="w-4 h-4" />
+                        <Trash className="w-4 h-4" />
                       </button>
                     </div>
 
@@ -107,7 +107,7 @@ const CartPage = () => {
                           onClick={() => updateQuantity(item.id, item.quantity - 1)}
                           className="w-8 h-8 rounded-full bg-white flex items-center justify-center hover:bg-orange-500 hover:text-white transition-colors"
                         >
-                          <FiMinus className="w-3 h-3" />
+                          <Minus className="w-3 h-3" />
                         </button>
                         <span className="w-8 text-center font-semibold text-gray-900">
                           {item.quantity}
@@ -116,7 +116,7 @@ const CartPage = () => {
                           onClick={() => updateQuantity(item.id, item.quantity + 1)}
                           className="w-8 h-8 rounded-full bg-white flex items-center justify-center hover:bg-orange-500 hover:text-white transition-colors"
                         >
-                          <FiPlus className="w-3 h-3" />
+                          <Plus className="w-3 h-3" />
                         </button>
                       </div>
 
@@ -177,7 +177,7 @@ const CartPage = () => {
                 className="w-full py-4 bg-orange-500 text-white rounded-full font-bold flex items-center justify-center gap-2 hover:bg-orange-600 transition-colors hover:shadow-lg hover:shadow-orange-500/30"
               >
                 Proceed to Checkout
-                <FiArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-5 h-5" />
               </button>
 
               <Link
