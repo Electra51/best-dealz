@@ -1,5 +1,5 @@
 import React from "react";
-import homeImage from "../../../assets/shoe.png";
+import homeImage from "../../../assets/shoe.webp";
 import { Link } from "react-router-dom";
 import { cn } from "../../../utils/cn";
 
