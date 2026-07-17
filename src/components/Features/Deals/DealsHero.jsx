@@ -30,15 +30,15 @@ const DealsHero = () => {
           initial={{ opacity: 0, y: 20 }} 
           animate={{ opacity: 1, y: 0 }} 
           transition={{ delay: 0.1 }} 
-          className="text-4xl md:text-6xl font-black mb-6 leading-tight"
+          className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight"
         >
-          Up to <span className="text-orange-500">70% OFF</span>
+          Up to <span className="bg-linear-to-tr from-[#FF7203] to-[#FF9A03] bg-clip-text text-transparent">70% OFF</span>
         </motion.h1>
 
         <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-10">
           Don't miss out on our biggest sale of the year. Premium sneakers and gear at unbeatable prices.
         </p>
-          <button className="px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-full transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-500/30">
+          <button className="group inline-flex items-center justify-center gap-2.5 py-3 px-6 rounded-full text-[16px] font-semibold no-underline transition-all duration-300 cursor-pointer max-md:w-full bg-linear-to-br from-[#FF7203] to-[#FF9A03] text-white shadow-[0_10px_30px_rgba(255,165,0,0.3)] hover:-translate-y-0.75 hover:shadow-[0_15px_40px_rgba(255,165,0,0.4)]">
           Shop Flash Deals
         </button>
        </div>

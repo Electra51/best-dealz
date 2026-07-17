@@ -10,7 +10,7 @@
       "brand": "Tom Ford",
       "category": "Clothing",
       "subCategory": "Hoodies",
-      "collection": "Weekend Casual",
+      "collection": "WeekendCasual",
       "gender": "Men",
       "tags": [
         "clothing",
@@ -90,7 +90,7 @@
       "brand": "Tommy Hilfiger",
       "category": "Clothing",
       "subCategory": "Jeans",
-      "collection": "Weekend Casual",
+      "collection": "WeekendCasual",
       "gender": "Unisex",
       "tags": [
         "clothing",
@@ -173,7 +173,7 @@
   "brand": "Tom Ford",
   "category": "Clothing",
   "subCategory": "Hoodies",
-  "collection": "Weekend Casual",
+  "collection": "WeekendCasual",
   "gender": "Men",
   "tags": [
     "hoodie",
@@ -256,7 +256,7 @@
   "brand": "Puma",
   "category": "Clothing",
   "subCategory": "Jackets",
-  "collection": "Active Lifestyle",
+  "collection": "ActiveLifestyle",
   "gender": "Men",
   "tags": [
     "puma",
@@ -339,7 +339,7 @@
   "brand": "Puma",
   "category": "Clothing",
   "subCategory": "Jackets",
-  "collection": "Active Lifestyle",
+  "collection": "ActiveLifestyle",
   "gender": "Men",
   "tags": [
     "track jacket",
@@ -422,7 +422,7 @@
       "brand": "Adidas",
       "category": "Footwear",
       "subCategory": "Sneakers",
-      "collection": "Weekend Casual",
+      "collection": "WeekendCasual",
       "gender": "Men",
       "tags": [
         "footwear",
@@ -431,7 +431,7 @@
         "premium",
         "new"
       ],
-      "thumbnail": "src/assets/active.jpeg",
+      "thumbnail": "src/assets/images/sneakers/sneakar1.png",
       "gallery": [
         "src/assets/active.jpeg",
         "src/assets/active.jpeg",
@@ -504,7 +504,7 @@
       "brand": "Aesop",
       "category": "Clothing",
       "subCategory": "Jackets",
-      "collection": "Weekend Casual",
+      "collection": "WeekendCasual",
       "gender": "Men",
       "tags": [
         "clothing",
@@ -743,7 +743,7 @@
       "brand": "Calvin Klein",
       "category": "Clothing",
       "subCategory": "Jeans",
-      "collection": "Office Ready",
+      "collection": "OfficeReady",
       "gender": "Unisex",
       "tags": [
         "clothing",
@@ -816,6 +816,7 @@
         "yrtsek60s"
       ]
     },
+    
     {
   "id": "v92nk8qdf",
   "sku": "CLO-60891",
@@ -826,7 +827,7 @@
   "brand": "Richman",
   "category": "Clothing",
   "subCategory": "Shirts",
-  "collection": "Office Ready",
+  "collection": "OfficeReady",
   "gender": "Men",
   "tags": [
     "richman",
@@ -899,6 +900,88 @@
     "371jvciy1"
   ]
 },
+{
+  "id": "f8m2qz7kp",
+  "sku": "FOO-25067",
+  "slug": "urban-leather-sneakers",
+  "name": "Urban Leather Sneakers",
+  "shortDescription": "Premium leather sneakers crafted for everyday comfort and modern street style.",
+  "fullDescription": "The Urban Leather Sneakers combines premium craftsmanship with lightweight comfort. Featuring a durable leather upper, cushioned insole, and non-slip rubber outsole, it's perfect for casual outings, office wear, and weekend adventures.",
+  "brand": "Nike",
+  "category": "Footwear",
+  "subCategory": "Sneakers",
+  "collection": "Office Ready",
+  "gender": "Men",
+  "tags": [
+    "footwear",
+    "leather",
+    "urban",
+    "premium",
+    "trending"
+  ],
+  "thumbnail": "src/assets/images/sneakers/sneakar2.png",
+  "gallery": [
+    "src/assets/images/sneakers/sneaker2-1.png",
+    "src/assets/images/sneakers/sneaker2-2.png",
+    "src/assets/images/sneakers/sneaker2-3.png",
+    "src/assets/images/sneakers/sneaker2-4.png"
+  ],
+  "price": 65,
+  "comparePrice": 85,
+  "inventory": {
+    "stock": 184,
+    "lowStock": false,
+    "inStock": true,
+    "preorder": false,
+    "shippingDays": 2
+  },
+  "rating": 4.8,
+  "reviewCount": 287,
+  "soldCount": 521,
+  "colors": [
+    "Black",
+    "Brown"
+  ],
+  "sizes": [
+    "8",
+    "9",
+    "10",
+    "11",
+    "12"
+  ],
+  "shipping": {
+    "freeShipping": true,
+    "cost": 0
+  },
+  "estimatedDelivery": "3 - 5 Business Days",
+  "flags": {
+    "featured": true,
+    "trending": true,
+    "newArrival": false,
+    "bestSeller": true,
+    "isLimitedEdition": false,
+    "isFeaturedCollection": true
+  },
+  "createdAt": "2024-02-10T09:30:00.000Z",
+  "updatedAt": "2025-05-22T14:20:00.000Z",
+  "relatedProducts": [
+    "9nrv3s1w6",
+    "lllqb3e6v",
+    "hqzj9oqna",
+    "h3wxwhlej"
+  ],
+  "recommendedProducts": [
+    "p2784ody8",
+    "k47kn74xt",
+    "y0f2nzg9b",
+    "p7ge29rk8"
+  ],
+  "frequentlyBoughtTogether": [
+    "q8pwh2vrh",
+    "p0brps0ln",
+    "k47kn74xt"
+  ]
+},
     {
       "id": "h3wxwhlej",
       "sku": "FOO-68038",
@@ -908,7 +991,7 @@
       "fullDescription": "The Premium Leather Formal Shoes is a premium product from our Office Ready collection. Crafted with the finest materials to ensure durability and style. Perfect for any occasion, it seamlessly blends functionality with modern aesthetics. Available in various sizes and colors to match your personal preference. Add this essential piece to your collection today.",
       "brand": "Under Armour",
       "category": "Footwear",
-      "subCategory": "Formal Shoes",
+      "subCategory": "Sneakers",
       "collection": "Office Ready",
       "gender": "Men",
       "tags": [
@@ -981,6 +1064,90 @@
         "sugybl7cq"
       ]
     },
+    {
+  "id": "v3x9jd8lw",
+  "sku": "FOO-25068",
+  "slug": "performance-running-shoes",
+  "name": "Performance Running Shoes",
+  "shortDescription": "Lightweight running shoes engineered for speed, stability, and all-day comfort.",
+  "fullDescription": "Built for athletes and active lifestyles, the Performance Running Shoes features breathable mesh fabric, responsive cushioning, and enhanced grip for maximum performance. Whether you're training or walking, it delivers superior comfort and durability.",
+  "brand": "Puma",
+  "category": "Footwear",
+  "subCategory": "Sneakers",
+  "collection": "ActiveLifestyle",
+  "gender": "Men",
+  "tags": [
+    "running",
+    "sports",
+    "active",
+    "lightweight",
+    "best-seller"
+  ],
+  "thumbnail": "src/assets/images/sneakers/sneakar3.png",
+  "gallery": [
+    "src/assets/images/sneakers/sneaker3-1.png",
+    "src/assets/images/sneakers/sneaker3-2.png",
+    "src/assets/images/sneakers/sneaker3-3.png",
+    "src/assets/images/sneakers/sneaker3-4.png"
+  ],
+  "price": 72,
+  "comparePrice": 95,
+  "inventory": {
+    "stock": 143,
+    "lowStock": false,
+    "inStock": true,
+    "preorder": false,
+    "shippingDays": 3
+  },
+  "rating": 4.9,
+  "reviewCount": 413,
+  "soldCount": 798,
+  "colors": [
+    "White",
+    "Blue",
+    "Gray"
+  ],
+  "sizes": [
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12"
+  ],
+  "shipping": {
+    "freeShipping": true,
+    "cost": 0
+  },
+  "estimatedDelivery": "4 - 6 Business Days",
+  "flags": {
+    "featured": true,
+    "trending": true,
+    "newArrival": true,
+    "bestSeller": true,
+    "isLimitedEdition": false,
+    "isFeaturedCollection": true
+  },
+  "createdAt": "2024-06-15T12:45:00.000Z",
+  "updatedAt": "2025-06-10T11:10:00.000Z",
+  "relatedProducts": [
+    "9nrv3s1w6",
+    "f8m2qz7kp",
+    "hqzj9oqna",
+    "h3wxwhlej"
+  ],
+  "recommendedProducts": [
+    "y0f2nzg9b",
+    "p7ge29rk8",
+    "k47kn74xt",
+    "lllqb3e6v"
+  ],
+  "frequentlyBoughtTogether": [
+    "q8pwh2vrh",
+    "p0brps0ln",
+    "k47kn74xt"
+  ]
+},
     {
       "id": "pbby4trav",
       "sku": "ACC-82423",

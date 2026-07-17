@@ -23,8 +23,8 @@ const ShopHero = () => {
         </motion.nav>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
-          <h1 className="text-4xl md:text-5xl font-black mb-4 leading-tight">
-            Explore Our <span className="text-orange-500">Premium</span> 
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
+            Explore Our <span className="bg-linear-to-tr from-[#FF7203] to-[#FF9A03] bg-clip-text text-transparent">Premium</span> 
             <br/>Collection
           </h1>
           <p className="text-lg text-gray-300 max-w-2xl">
