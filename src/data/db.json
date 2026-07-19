@@ -1437,7 +1437,7 @@
         "premium",
         "new"
       ],
-      "thumbnail": "src/assets/active.jpeg",
+      "thumbnail": "src/assets/images/belts/belts.png",
       "gallery": [
         "src/assets/active.jpeg",
         "src/assets/active.jpeg",
@@ -1516,7 +1516,7 @@
         "premium",
         "new"
       ],
-      "thumbnail": "src/assets/active.jpeg",
+      "thumbnail": "src/assets/images/bags/bag1.png",
       "gallery": [
         "src/assets/active.jpeg",
         "src/assets/active.jpeg",
@@ -1755,7 +1755,7 @@
         "premium",
         "new"
       ],
-      "thumbnail": "src/assets/active.jpeg",
+      "thumbnail": "src/assets/images/watches/watch1.png",
       "gallery": [
         "src/assets/active.jpeg",
         "src/assets/active.jpeg",
@@ -1839,7 +1839,7 @@
         "premium",
         "new"
       ],
-      "thumbnail": "src/assets/active.jpeg",
+      "thumbnail": "src/assets/images/caps/cap1.png",
       "gallery": [
         "src/assets/active.jpeg",
         "src/assets/active.jpeg",
@@ -2407,7 +2407,7 @@
         "premium",
         "new"
       ],
-      "thumbnail": "src/assets/active.jpeg",
+      "thumbnail": "src/assets/images/face-wash/face-wash2.png",
       "gallery": [
         "src/assets/active.jpeg",
         "src/assets/active.jpeg",
@@ -2466,6 +2466,84 @@
       ]
     },
     {
+  "id": "shave001",
+  "sku": "SHV-42011",
+  "slug": "premium-5-piece-shaving-kit",
+  "name": "Premium 5-Piece Shaving Kit",
+  "shortDescription": "Experience the best of Grooming Picks with our Premium 5-Piece Shaving Kit. Designed for a smooth and comfortable shaving experience.",
+  "fullDescription": "The Premium 5-Piece Shaving Kit is a complete grooming solution for modern men. It includes a premium razor, shaving brush, shaving bowl, stand, and shaving cream. Crafted with high-quality materials for durability and precision, this kit delivers a professional shaving experience at home.",
+  "brand": "Gillette",
+  "category": "Grooming",
+  "subCategory": "Shaving Kits",
+  "collection": "Grooming Picks",
+  "gender": "Men",
+  "tags": [
+    "grooming",
+    "shaving kit",
+    "premium",
+    "men",
+    "new"
+  ],
+  "thumbnail": "src/assets/images/shaving-kits/shaving-kit1.png",
+  "gallery": [
+    "src/assets/images/shaving-kits/shaving-kit1.png",
+    "src/assets/images/shaving-kits/shaving-kit2.png",
+    "src/assets/images/shaving-kits/shaving-kit3.png",
+    "src/assets/images/shaving-kits/shaving-kit4.png"
+  ],
+  "price": 59,
+  "comparePrice": 75,
+  "inventory": {
+    "stock": 94,
+    "lowStock": false,
+    "inStock": true,
+    "preorder": false,
+    "shippingDays": 3
+  },
+  "rating": 5,
+  "reviewCount": 186,
+  "soldCount": 845,
+  "colors": [
+    "Black",
+    "Silver"
+  ],
+  "sizes": [
+    "Standard"
+  ],
+  "shipping": {
+    "freeShipping": true,
+    "cost": 0
+  },
+  "estimatedDelivery": "2 - 5 Business Days",
+  "flags": {
+    "featured": true,
+    "trending": true,
+    "newArrival": false,
+    "bestSeller": true,
+    "isLimitedEdition": false,
+    "isFeaturedCollection": true
+  },
+  "createdAt": "2025-02-12T10:15:22.000Z",
+  "updatedAt": "2025-12-05T14:30:00.000Z",
+  "relatedProducts": [
+    "face001",
+    "beard001",
+    "after001",
+    "razor001"
+  ],
+  "recommendedProducts": [
+    "cream001",
+    "foam001",
+    "beard002",
+    "face002"
+  ],
+  "frequentlyBoughtTogether": [
+    "after001",
+    "foam001",
+    "blade001"
+  ]
+},
+    {
       "id": "371jvciy1",
       "sku": "GRO-74675",
       "slug": "daily-hydrating-face-wash",
@@ -2484,7 +2562,7 @@
         "premium",
         "new"
       ],
-      "thumbnail": "src/assets/active.jpeg",
+      "thumbnail": "src/assets/images/face-wash/face-wash1.png",
       "gallery": [
         "src/assets/active.jpeg",
         "src/assets/active.jpeg",
@@ -2561,7 +2639,7 @@
         "premium",
         "new"
       ],
-      "thumbnail": "src/assets/active.jpeg",
+      "thumbnail": "src/assets/images/hair-care/hair-care1.png",
       "gallery": [
         "src/assets/active.jpeg",
         "src/assets/active.jpeg",
@@ -2638,7 +2716,7 @@
         "premium",
         "new"
       ],
-      "thumbnail": "src/assets/active.jpeg",
+      "thumbnail": "src/assets/images/perfume/perfume1.png",
       "gallery": [
         "src/assets/active.jpeg",
         "src/assets/active.jpeg",
@@ -2715,7 +2793,7 @@
         "premium",
         "new"
       ],
-      "thumbnail": "src/assets/active.jpeg",
+      "thumbnail": "src/assets/images/body-spray/body-spray1.png",
       "gallery": [
         "src/assets/active.jpeg",
         "src/assets/active.jpeg",
@@ -2774,6 +2852,7 @@
       ]
     }
   ],
+  
   "reviews": [
     {
       "id": "x7br1x36v",
