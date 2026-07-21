@@ -22,16 +22,13 @@ import Footer from "./Footer";
 
 const MainLayout = () => {
   return (
-    <div className="min-h-screen ">
-      
-      <div className="hidden md:block">
-        <Header />
-      </div>
-      
+    <div className="">
+      <Header />
+
       <main className="flex-1">
         <Outlet />
       </main>
-      
+
       <div className="hidden md:block">
         <Footer />
       </div>
@@ -39,7 +36,6 @@ const MainLayout = () => {
       <div className="md:hidden">
         <BottomNav />
       </div>
-
     </div>
   );
 };

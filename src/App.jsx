@@ -23,7 +23,7 @@ function App() {
    <>
       {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
       
-      <div className={showSplash ? "hidden" : "animate-fade-in"}>
+      <div className={showSplash ? "hidden" : ""}>
         <RouterProvider router={router} />
         <Toaster
           position="top-right"
