@@ -2,6 +2,7 @@ import React, { lazy } from "react";
 import Hero from "../components/Features/Home/Hero";
 import LazySection from "../components/Common/LazySection";
 import SEO from "../components/Common/SEO";
+import MobileCategories from "../components/Features/Home/MobileCategories";
 
 const FeaturedCategories = lazy(() => import("../components/Features/Home/FeaturedCategories"));
 const Trending = lazy(() => import("../components/Features/Home/Trending"));
@@ -22,6 +23,7 @@ const HomePage = () => {
         description="Shop the best premium sneakers and apparel at Dealora. Exclusive deals, fast delivery, and guaranteed quality."
       />
       <Hero />
+       <MobileCategories />
       <LazySection>
         <FeaturedCategories />
       </LazySection>
