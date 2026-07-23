@@ -11,15 +11,15 @@ const SectionHeader = ({
 }) => {
   return (
     <div
-      className={`flex flex-col gap-6 md:flex-row md:items-end md:justify-between mb-10 ${className}`}
+      className={`flex items-center justify-between md:items-end mb-6 md:mb-10 ${className}`}
     >
       <div>
-        <h2 className="text-3xl md:text-4xl font-black text-gray-900 leading-tight">
+        <h2 className="text-xl md:text-4xl font-black text-gray-900 leading-tight">
           {title}
         </h2>
 
         {description && (
-          <p className="mt-3 max-w-2xl text-lg text-gray-600 leading-relaxed">
+          <p className="mt-3 max-w-2xl text-lg text-gray-600 leading-relaxed hidden md:flex">
             {description}
           </p>
         )}
@@ -29,14 +29,15 @@ const SectionHeader = ({
         (actionLink ? (
           <Link
             to={actionLink}
-            className="hover:underline underline inline-flex items-center gap-2 bg-linear-to-tr from-[#FF7203] to-[#FF9A03] bg-clip-text text-transparent font-semibold transition-all duration-300 hover:gap-3"
+            className="inline-flex items-center gap-1 md:gap-2 bg-linear-to-tr from-[#FF7203] to-[#FF9A03] bg-clip-text text-transparent font-semibold transition-all duration-300 md:hover:gap-3 shrink-0"
           >
-            {actionText}
+            <span className="hidden md:inline">{actionText}</span>
 
-            {/* <svg
-              className="w-5 h-5"
+            {/* Desktop Arrow */}
+            <svg
+              className="w-5 h-5 hidden md:block"
               fill="none"
-              stroke="currentColor"
+              stroke="#FF7203"
               viewBox="0 0 24 24"
             >
               <path
@@ -45,19 +46,35 @@ const SectionHeader = ({
                 strokeWidth="2"
                 d="M17 8l4 4m0 0l-4 4m4-4H3"
               />
-            </svg> */}
+            </svg>
+            
+            {/* Mobile Angle Icon */}
+            <svg 
+              className="w-6 h-6 md:hidden" 
+              fill="none" 
+              stroke="#FF7203" 
+              viewBox="0 0 24 24"
+            >
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth="2" 
+                d="M9 5l7 7-7 7" 
+              />
+            </svg>
           </Link>
         ) : (
           <button
             onClick={onActionClick}
-            className="inline-flex items-center gap-2 bg-linear-to-tr from-[#FF7203] to-[#FF9A03] bg-clip-text text-transparent font-semibold transition-all duration-300 hover:gap-3"
+            className="inline-flex items-center gap-1 md:gap-2 bg-linear-to-tr from-[#FF7203] to-[#FF9A03] bg-clip-text text-transparent font-semibold transition-all duration-300 md:hover:gap-3 shrink-0"
           >
-            {actionText}
+            <span className="hidden md:inline">{actionText}</span>
 
+            {/* Desktop Arrow */}
             <svg
-              className="w-5 h-5"
+              className="w-5 h-5 hidden md:block"
               fill="none"
-              stroke="currentColor"
+              stroke="#FF7203"
               viewBox="0 0 24 24"
             >
               <path
@@ -65,6 +82,21 @@ const SectionHeader = ({
                 strokeLinejoin="round"
                 strokeWidth="2"
                 d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+            
+            {/* Mobile Angle Icon */}
+            <svg 
+              className="w-6 h-6 md:hidden" 
+              fill="none" 
+              stroke="#FF7203" 
+              viewBox="0 0 24 24"
+            >
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth="2" 
+                d="M9 5l7 7-7 7" 
               />
             </svg>
           </button>

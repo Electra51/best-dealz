@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { formatPrice } from '../../utils/helpers';
 import { useCartStore } from '../../stores/cart.store';
 import { useWishlistStore } from '../../stores/wishlist.store';
-import { Eye } from 'lucide-react';
+import { Eye, Plus, ShoppingBag } from 'lucide-react';
 
 const ProductCard = memo(({ 
   product, 
@@ -137,13 +137,13 @@ const ProductCard = memo(({
       initial={{ opacity: 0, y: 20 }} 
       animate={{ opacity: 1, y: 0 }} 
       whileHover={{ y: -4 }}
-      className={`group rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl ${styles.card} ${
-        viewMode === 'list' ? 'flex' : ''
+      className={`group rounded-xl md:rounded-2xl overflow-hidden transition-all duration-300 shadow-[0_4px_12px_rgba(0,0,0,0.05)] md:shadow-none hover:shadow-xl ${styles.card} ${
+        viewMode === 'list' ? 'flex' : 'flex flex-col h-full'
       }`}
     >
       {/* Image Container */}
       <div className={`relative bg-linear-to-br from-gray-50 to-gray-100 ${
-        viewMode === 'list' ? 'w-48 shrink-0' : 'aspect-square'
+        viewMode === 'list' ? 'w-32 md:w-48 shrink-0' : 'aspect-square'
       } overflow-hidden`}>
         <img 
           src={product.thumbnail || '/placeholder.jpg'} 
@@ -153,16 +153,16 @@ const ProductCard = memo(({
         />
         
         {/* Badges */}
-        <div className="absolute top-3 left-3 flex flex-col gap-2 z-10">
+        <div className="absolute top-2 left-2 md:top-3 md:left-3 flex flex-col gap-1.5 md:gap-2 z-10">
           {discount > 0 && (
-            <span className={`${styles.badge} text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-sm`}>
+            <span className={`${styles.badge} text-white text-[9px] md:text-[10px] font-bold px-2 py-0.5 md:px-2.5 md:py-1 rounded-full shadow-sm`}>
               -{discount}%
             </span>
           )}
           {badges.map((badge, idx) => (
             <span 
               key={idx} 
-              className={`${badge.className} text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-sm`}
+              className={`${badge.className} text-white text-[9px] md:text-[10px] font-bold px-2 py-0.5 md:px-2.5 md:py-1 rounded-full shadow-sm`}
             >
               {badge.text}
             </span>
@@ -172,7 +172,7 @@ const ProductCard = memo(({
         {/* Wishlist Button */}
         <button 
           onClick={handleWishlistToggle}
-          className={`absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center shadow-md transition-all duration-300 z-10 ${
+          className={`absolute top-2 right-2 md:top-3 md:right-3 w-7 h-7 md:w-9 md:h-9 rounded-full flex items-center justify-center shadow-sm md:shadow-md transition-all duration-300 z-10 ${
             isInWishlist 
               ? 'bg-red-500 text-white scale-110' 
               : 'bg-white/90 backdrop-blur-sm text-gray-600 hover:bg-red-50 hover:text-red-500 hover:scale-110'
@@ -180,7 +180,7 @@ const ProductCard = memo(({
           aria-label={isInWishlist ? "Remove from wishlist" : "Add to wishlist"}
         >
           <svg 
-            className="w-4 h-4 transition-transform" 
+            className="w-3.5 h-3.5 md:w-4 md:h-4 transition-transform" 
             fill={isInWishlist ? "currentColor" : "none"} 
             stroke="currentColor" 
             viewBox="0 0 24 24"
@@ -191,12 +191,12 @@ const ProductCard = memo(({
 
         {/* Stock Indicator */}
         {stock < 10 && stock > 0 && (
-          <div className="absolute bottom-3 left-3 right-3">
-            <div className="bg-black/80 backdrop-blur-sm rounded-lg px-3 py-1.5">
-              <div className="flex items-center gap-2">
+          <div className="absolute bottom-2 left-2 right-2 md:bottom-3 md:left-3 md:right-3">
+            <div className="bg-black/80 backdrop-blur-sm rounded-lg px-2 py-1 md:px-3 md:py-1.5 flex items-center justify-center">
+              <div className="flex items-center gap-1.5">
                 <div className="w-1.5 h-1.5 bg-orange-500 rounded-full animate-pulse"></div>
-                <span className="text-white text-[10px] font-semibold">
-                  Only {stock} left!
+                <span className="text-white text-[9px] md:text-[10px] font-semibold whitespace-nowrap">
+                  Only {stock} left
                 </span>
               </div>
             </div>
@@ -205,15 +205,15 @@ const ProductCard = memo(({
 
         {stock === 0 && (
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center">
-            <span className="bg-white text-gray-900 font-bold px-4 py-2 rounded-full text-sm">
-              Out of Stock
+            <span className="bg-white text-gray-900 font-bold px-3 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm">
+              Sold Out
             </span>
           </div>
         )}
 
-        {/* Quick View Button (for trending variant) */}
+        {/* Quick View Button (Desktop only) */}
         {variant === 'trending' && onQuickView && (
-          <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="hidden md:flex absolute inset-0 bg-linear-to-t from-black/70 to-transparent items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <button
               onClick={handleQuickView}
               className="flex items-center gap-2 px-6 py-3 bg-white text-gray-900 rounded-full text-sm font-bold translate-y-5 group-hover:translate-y-0 transition-all duration-300 hover:bg-orange-500 hover:text-white"
@@ -226,58 +226,61 @@ const ProductCard = memo(({
       </div>
       
       {/* Content */}
-      <div className="p-4 flex-1 flex flex-col">
+      <div className="p-3 md:p-4 flex-1 flex flex-col bg-white">
         {/* Brand & Category */}
         <div className="flex items-center justify-between mb-1">
-          <p className={`text-xs ${styles.accent} uppercase tracking-wider font-semibold`}>
-            {product.brand || 'Unknown Brand'}
+          <p className={`text-[10px] md:text-xs ${styles.accent} uppercase tracking-wider font-semibold truncate pr-2`}>
+            {product.brand || 'Unknown'}
           </p>
-          <p className={`text-[10px] ${styles.textSecondary} uppercase tracking-wide`}>
+          <p className={`text-[9px] md:text-[10px] ${styles.textSecondary} uppercase tracking-wide truncate max-w-[40%]`}>
             {product.subCategory || product.category || ''}
           </p>
         </div>
 
         {/* Product Name */}
-        <h3 className={`font-semibold ${styles.textPrimary} line-clamp-2 mb-2 min-h-10 group-hover:${styles.accent} transition-colors`}>
+        <h3 
+          className={`font-medium md:font-semibold text-xs md:text-sm ${styles.textPrimary} line-clamp-2 mb-1.5 md:mb-2 min-h-[32px] md:min-h-[40px] group-hover:${styles.accent} transition-colors leading-snug`}
+          onClick={handleQuickView}
+        >
           {product.name || 'Unnamed Product'}
         </h3>
         
         {/* Rating */}
-        <div className="flex items-center gap-1.5 mb-3">
-          <div className="flex items-center gap-0.5">
+        <div className="flex items-center gap-1 md:gap-1.5 mb-2 md:mb-3">
+          <div className="flex items-center">
             {[...Array(5)].map((_, i) => (
               <span 
                 key={i} 
-                className={`text-xs ${i < Math.floor(rating) ? 'text-yellow-400' : 'text-gray-300'}`}
+                className={`text-[10px] md:text-xs ${i < Math.floor(rating) ? 'text-yellow-400' : 'text-gray-300'}`}
               >
                 ★
               </span>
             ))}
           </div>
-          <span className={`text-xs ${styles.textSecondary} font-medium`}>
+          <span className={`text-[10px] md:text-xs ${styles.textSecondary} font-medium`}>
             {rating.toFixed(1)}
           </span>
-          <span className={`text-xs ${styles.textSecondary}`}>
-            ({reviewCount.toLocaleString()})
+          <span className={`text-[9px] md:text-xs ${styles.textSecondary} hidden sm:inline`}>
+            ({reviewCount})
           </span>
         </div>
         
         {/* Price & Add to Cart */}
-        <div className="mt-auto flex items-center justify-between pt-3 border-t border-gray-100/10">
-          <div className="flex flex-col gap-0.5">
-            <div className="flex items-baseline gap-2">
-              <span className={`text-lg font-bold ${styles.textPrimary}`}>
+        <div className="mt-auto flex items-end justify-between pt-2 md:pt-3 border-t border-gray-50 md:border-gray-100/10">
+          <div className="flex flex-col">
+            <div className="flex items-baseline gap-1.5 md:gap-2 flex-wrap">
+              <span className={`text-sm md:text-lg font-bold ${styles.textPrimary} leading-none`}>
                 {formatPrice(price)}
               </span>
               {comparePrice > price && (
-                <span className={`text-xs ${styles.textSecondary} line-through`}>
+                <span className={`text-[10px] md:text-xs ${styles.textSecondary} line-through leading-none`}>
                   {formatPrice(comparePrice)}
                 </span>
               )}
             </div>
             {shipping <= 5 && (
-              <span className="text-[10px] text-green-600 font-semibold">
-                Free Shipping
+              <span className="text-[9px] md:text-[10px] text-green-600 font-semibold mt-0.5">
+                Free Delivery
               </span>
             )}
           </div>
@@ -285,15 +288,28 @@ const ProductCard = memo(({
           <button 
             onClick={handleAddToCart}
             disabled={stock === 0}
-            className={`px-4 py-2 text-xs font-semibold rounded-lg transition-all duration-300 ${
+            className={`shrink-0 flex items-center justify-center transition-all duration-300 ${
               stock === 0
-                ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                ? 'w-7 h-7 md:w-auto md:px-4 md:py-2 rounded-full md:rounded-lg bg-gray-100 text-gray-400 cursor-not-allowed'
                 : isAdding
-                ? 'bg-green-500 text-white scale-95'
-                : `${styles.button} hover:shadow-lg hover:scale-105`
+                ? 'w-7 h-7 md:w-auto md:px-4 md:py-2 rounded-full md:rounded-lg bg-green-500 text-white scale-95'
+                : `w-7 h-7 md:w-auto md:px-4 md:py-2 rounded-full md:rounded-lg ${styles.button} hover:shadow-lg active:scale-90 md:hover:scale-105`
             }`}
+            aria-label="Add to cart"
           >
-            {stock === 0 ? 'Sold Out' : isAdding ? '✓ Added' : 'Add'}
+            {stock === 0 ? (
+              <span className="text-[10px] md:text-xs font-semibold hidden md:block">Sold Out</span>
+            ) : isAdding ? (
+              <>
+                <svg className="w-3.5 h-3.5 md:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
+                <span className="hidden md:block text-xs font-semibold">✓ Added</span>
+              </>
+            ) : (
+              <>
+                <Plus className="w-4 h-4 md:hidden" strokeWidth={2.5} />
+                <span className="hidden md:block text-xs font-semibold">Add</span>
+              </>
+            )}
           </button>
         </div>
       </div>

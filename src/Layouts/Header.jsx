@@ -467,9 +467,9 @@ const Header = () => {
     <div className="md:hidden">
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-1000 transition-all duration-500 pb-5 md:border-b rounded-b-[28px]",
+          "fixed top-0 left-0 right-0 z-1000 transition-all duration-500 pb-5 md:border-b",
           isScrolled
-            ? "bg-[#1a1a24]/95 backdrop-blur-md shadow-lg"
+            ? "bg-white backdrop-blur-md shadow-lg"
             : "bg-transparent md:bg-[#1a1a24]"
         )}
       >

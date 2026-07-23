@@ -47,7 +47,7 @@ const MobileCategories = memo(() => {
   return (
     <div className="md:hidden mt-7 px-5 pb-6">
       {/* Section Header */}
-      <div className="flex items-center justify-between mb-5">
+      <div className="flex items-center justify-between mb-2">
         <h2 className="text-xl font-bold text-bleck">Categories</h2>
        
       </div>
@@ -73,7 +73,7 @@ const MobileCategories = memo(() => {
                   {/* <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} /> */}
                   
                   {/* Image Container */}
-                  <div className="relative h-20 p-2 bg-linear-to-br from-white/5 to-white/10 flex items-center justify-center">
+                  <div className="relative h-20 bg-linear-to-br from-white/5 to-white/10 flex items-center justify-center">
                     <motion.img
                       src={category.image}
                       alt={category.title}

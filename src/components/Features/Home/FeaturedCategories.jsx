@@ -74,7 +74,7 @@ const categories = [
   };
 
   return (
-    <section className="relative max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 overflow-hidden py-14 lg:py-20">
+    <section className="hidden md:block relative max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 overflow-hidden py-14 lg:py-20">
       {/* Radial glow top */}
       <div className="absolute top-0 left-0 right-0 h-75 pointer-events-none bg-[radial-gradient(circle_at_50%_0%,rgba(255,165,0,0.05)_0%,transparent_70%)]"></div>
 
