@@ -70,7 +70,7 @@ const Trending = ({ handleAddToCart }) => {
   }
 
   return (
-    <section className="relative max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 pb-24 w-full lg:pb-20">
+    <section className="relative max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 pb-16 w-full lg:pb-20">
       <SectionHeader
         title="Trending Products"
         description="Discover our most loved products chosen by thousands of satisfied customers"

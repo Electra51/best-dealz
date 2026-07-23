@@ -239,7 +239,7 @@ const ProductCard = memo(({
 
         {/* Product Name */}
         <h3 
-          className={`font-medium md:font-semibold text-xs md:text-sm ${styles.textPrimary} line-clamp-2 mb-1.5 md:mb-2 min-h-[32px] md:min-h-[40px] group-hover:${styles.accent} transition-colors leading-snug`}
+          className={`font-medium md:font-semibold text-xs md:text-sm ${styles.textPrimary} line-clamp-2 mb-1.5 md:mb-2 min-h-8 md:min-h-10 group-hover:${styles.accent} transition-colors leading-snug`}
           onClick={handleQuickView}
         >
           {product.name || 'Unnamed Product'}

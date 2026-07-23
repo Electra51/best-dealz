@@ -21,10 +21,10 @@ const BestSellers = ({ handleAddToCart }) => {
 
   if (loading) {
     return (
-      <section className="relative max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 py-10 md:py-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <section className="relative max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-10 md:py-20">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
           {[...Array(4)].map((_, i) => (
-            <div key={i} className="bg-white/5 border border-white/10 rounded-2xl h-96 animate-pulse" />
+            <div key={i} className="bg-white/5 border border-white/10 rounded-xl md:rounded-2xl h-65 md:h-96 animate-pulse" />
           ))}
         </div>
       </section>
@@ -32,7 +32,7 @@ const BestSellers = ({ handleAddToCart }) => {
   }
 
   return (
-    <section className="relative max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 py-10 md:py-20">
+    <section className="relative max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-10 md:py-20">
       <div className="absolute top-0 left-0 right-0 h-96 pointer-events-none bg-[radial-gradient(circle_at_50%_0%,rgba(249,115,22,0.08)_0%,transparent_70%)]"></div>
 
       <SectionHeader
@@ -43,7 +43,7 @@ const BestSellers = ({ handleAddToCart }) => {
         actionLink="/shop"
       />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 relative z-10">
         {bestSellers.map((product) => (
           <ProductCard
             key={product.id}

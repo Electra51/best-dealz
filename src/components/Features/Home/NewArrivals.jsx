@@ -28,7 +28,7 @@ const NewArrivals = ({ handleAddToCart }) => {
       <section className="relative max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 py-12 md:py-20">
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-5 lg:gap-8">
           {[...Array(4)].map((_, i) => (
-            <div key={i} className="bg-white rounded-xl md:rounded-2xl h-[260px] md:h-96 animate-pulse shadow-sm md:shadow-md" />
+            <div key={i} className="bg-white rounded-xl md:rounded-2xl h-65 md:h-96 animate-pulse shadow-sm md:shadow-md" />
           ))}
         </div>
       </section>
@@ -44,7 +44,7 @@ const NewArrivals = ({ handleAddToCart }) => {
   }
 
   return (
-    <section className="relative max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 py-16 w-full lg:py-20">
+    <section className="relative max-w-7xl mx-auto px-4 sm:px-4 lg:px-8 py-16 w-full lg:py-20">
       <div className="px-4 md:px-0 mb-4 md:mb-0">
         <SectionHeader
           title="New Arrivals"

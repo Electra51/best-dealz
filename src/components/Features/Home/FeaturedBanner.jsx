@@ -2,8 +2,8 @@
 
 const FeaturedBanner = () => {
   return (
-    <section className="relative w-full bg-linear-to-br  from-orange-400 via-orange-500 to-red-500 shadow-2xl">
-      <div className="relative max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 py-8 md:py-0">
+    <section className="relative w-full bg-linear-to-br from-orange-400 via-orange-500 to-red-500 shadow-xl md:shadow-2xl md:mx-0 rounded-2xl md:rounded-none">
+      <div className="relative max-w-7xl mx-auto px-5 md:px-6 lg:px-8 py-8 md:py-0">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
@@ -11,27 +11,27 @@ const FeaturedBanner = () => {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12">
           {/* Left Side - Text */}
           <div className="flex flex-col justify-center text-white">
             
-            <h2 className="text-3xl md:text-5xl lg:text-5xl font-black leading-tight mb-3 md:mb-6">
+            <h2 className="text-2xl md:text-5xl lg:text-5xl font-black leading-tight mb-2 md:mb-6">
               Summer 
               Sale
             </h2>
-            <div className="flex items-center gap-4 mb-3 md:mb-8">
-              <span className="text-3xl md:text-6xl font-black bg-white/20 backdrop-blur-sm px-3 py-2 md:px-6 md:py-3 rounded-2xl">
+            <div className="flex items-center gap-2 md:gap-4 mb-3 md:mb-8">
+              <span className="text-2xl md:text-6xl font-black bg-white/20 backdrop-blur-sm px-3 py-1 md:px-6 md:py-3 rounded-xl md:rounded-2xl">
                 40%
               </span>
-              <span className="text-3xl md:text-5xl font-bold">OFF</span>
+              <span className="text-2xl md:text-5xl font-bold">OFF</span>
             </div>
-            <p className="text-lg md:text-xl text-white/90 mb-8 max-w-md">
+            <p className="text-sm md:text-xl text-white/90 mb-6 md:mb-8 max-w-md hidden md:block">
               Discover amazing deals on your favorite products. Don't miss out on this exclusive summer collection!
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
               <a
                 href="/shop"
-                className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-orange-600 font-bold rounded-full text-base shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 md:gap-3 px-6 py-3 md:px-8 md:py-4 bg-white text-orange-600 font-bold rounded-full text-sm md:text-base shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300"
               >
                 Explore Now
                 <svg
@@ -50,7 +50,7 @@ const FeaturedBanner = () => {
               </a>
               <a
                 href="/deals"
-                className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-full text-base hover:bg-white hover:text-orange-600 transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 md:gap-3 px-6 py-3 md:px-8 md:py-4 bg-transparent border-2 border-white text-white font-bold rounded-full text-sm md:text-base hover:bg-white hover:text-orange-600 transition-all duration-300"
               >
                 View All Deals
               </a>
